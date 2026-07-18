@@ -5,7 +5,773 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login page</title>
 </head>
+<style>
+
+/*==========================
+    GOOGLE FONT
+==========================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+   
+ background-color: rgb(65, 62, 62);   
+}
+
+/*==========================
+      MAIN CONTAINER
+==========================*/
+
+.container{
+
+    position:relative;
+
+    width:900px;
+    height:600px;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/*==========================
+        FORMS
+==========================*/
+
+.form{
+
+    position:absolute;
+
+    width:50%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.7s ease-in-out;
+
+}
+
+.login-form{
+
+    left:0;
+
+    z-index:2;
+
+}
+
+.activation-form{
+
+    left:0;
+
+    opacity:0;
+
+    z-index:1;
+
+    pointer-events: none;
+
+}
+
+/*==========================
+       FORM STYLE
+==========================*/
+
+form{
+
+    width:80%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    width:95px;
+
+    margin-bottom:15px;
+
+}
+
+h2{
+
+    color:#800000;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+    text-align:center;
+
+    font-size:15px;
+
+}
+
+
+
+
+/*==========================
+      INPUT BOXES
+==========================*/
+
+.input-box{
+
+    width:100%;
+
+    height:55px;
+
+    background:#f4f4f4;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    margin:12px 0;
+
+    transition:.3s;
+
+}
+
+.input-box:hover{
+
+    box-shadow:0 5px 15px rgba(128,0,0,.2);
+
+}
+
+.input-box i{
+
+    color:#800000;
+
+    font-size:18px;
+
+}
+
+.input-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    padding-left:12px;
+
+    font-size:15px;
+
+}
+
+.toggle-password{
+
+    cursor:pointer;
+
+    color:#800000;
+
+}
+
+.forgot{
+
+    color:#800000;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    margin:10px 0 20px;
+
+}
+
+
+
+.btn{
+
+    width:200px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#FFD700;
+
+    color:#800000;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#800000;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+.ghost{
+
+    width:200px;
+
+    height:50px;
+
+    border:2px solid white;
+
+    border-radius:30px;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.ghost:hover{
+
+    background:white;
+
+    color:#800000;
+
+}
+
+
+
+/*==================================
+      OVERLAY CONTAINER
+==================================*/
+
+.overlay-container{
+
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    width:50%;
+    height:100%;
+
+    overflow:hidden;
+
+    transition:transform .7s ease-in-out;
+
+    z-index:100;
+
+}
+
+/*==================================
+          OVERLAY
+==================================*/
+
+.overlay{
+
+    position:relative;
+
+    left:-100%;
+
+    width:200%;
+    height:100%;
+
+    background:linear-gradient(135deg,#800000,#b22222);
+
+    color:white;
+
+    transition:transform .7s ease-in-out;
+
+}
+
+/*==================================
+      OVERLAY PANELS
+==================================*/
+
+.overlay-panel{
+
+    position:absolute;
+
+    width:50%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.left-panel{
+
+    left:0;
+
+    transform:translateX(-20%);
+
+}
+
+.right-panel{
+
+    right:0;
+
+    transform:translateX(0);
+
+}
+
+.overlay-logo{
+
+    width:120px;
+
+    margin-bottom:25px;
+
+}
+
+.overlay-panel h1{
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.overlay-panel p{
+
+    line-height:28px;
+
+    margin-bottom:35px;
+
+    font-size:15px;
+
+}
+
+
+
+/*==================================
+       PANEL ANIMATION
+==================================*/
+
+.container.active .login-form{
+
+    transform:translateX(100%);
+    opacity: 0;
+    z-index: 1;
+
+}
+
+.container.active .activation-form{
+
+    transform:translateX(100%);
+
+    opacity:1;
+
+    z-index:5;
+
+    pointer-events: auto;
+
+}
+
+.container.active .overlay-container{
+
+    transform:translateX(-100%);
+
+}
+
+.container.active .overlay{
+
+    transform:translateX(50%);
+
+}
+
+.container.active .left-panel{
+
+    transform:translateX(0);
+
+}
+
+.container.active .right-panel{
+
+    transform:translateX(20%);
+
+}
+
+
+
+/*==================================
+      MOBILE RESPONSIVE
+==================================*/
+
+@media(max-width:768px){
+
+.container{
+
+    width:100%;
+
+    height:100vh;
+
+    border-radius:0;
+
+}
+
+.form{
+
+    width:100%;
+
+}
+
+.overlay-container{
+
+    display:none;
+
+}
+
+.login-form,
+.activation-form{
+
+    width:100%;
+
+}
+
+.activation-form{
+
+    display:none;
+
+    opacity:1;
+
+}
+
+.btn{
+
+    width:100%;
+
+}
+
+}
+
+
+</style>
 <body>
-    
+    <div class="container" id="container">
+
+    <!-- ================= LOGIN FORM ================= -->
+
+    <div class="form login-form">
+
+        <form>
+
+            <img src="SHANAHAN-ROUND-LOGO.png" class="logo">
+
+            <h2>Student Login</h2>
+
+            <p class="subtitle">
+                Login to access your voting dashboard.
+            </p>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <input
+                type="text"
+                placeholder="Registration Number"
+                required>
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                required>
+
+                <span class="toggle-password">
+                    <i class="fa-solid fa-eye"></i>
+                </span>
+
+            </div>
+
+            <a href="#" class="forgot">
+                Forgot Password?
+            </a>
+
+            <button onclick="window.location.href='student portal.html'" class="btn" >
+                LOGIN
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= ACTIVATION FORM ================= -->
+
+    <div class="form activation-form">
+
+        <form>
+
+            <img src="SHANAHAN-ROUND-LOGO.png" class="logo">
+
+            <h2>Activate Account</h2>
+
+            <p class="subtitle">
+                Activate your account before voting.
+            </p>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <input
+                type="text"
+                placeholder="Registration Number"
+                required>
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                type="password"
+                id="newPassword"
+                placeholder="Create Password"
+                required>
+
+                <span class="toggle-password">
+                    <i class="fa-solid fa-eye"></i>
+                </span>
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                required>
+
+                <span class="toggle-password">
+                    <i class="fa-solid fa-eye"></i>
+                </span>
+
+            </div>
+
+            <button type="submit" class="btn">
+                ACTIVATE ACCOUNT
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- ================= SLIDING PANEL ================= -->
+
+    <div class="overlay-container">
+
+        <div class="overlay">
+
+            <!-- LEFT PANEL -->
+
+            <div class="overlay-panel left-panel">
+
+                <img src="SHANAHAN-ROUND-LOGO.png" class="overlay-logo">
+
+                <h1>Welcome Back!</h1>
+
+                <p>
+
+                    Already activated your account?
+
+                    Click below to login.
+
+                </p>
+
+                <button class="ghost" id="loginBtn">
+
+                    LOGIN
+
+                </button>
+
+            </div>
+
+            <!-- RIGHT PANEL -->
+
+            <div class="overlay-panel right-panel">
+
+                <img src="SHANAHAN-ROUND-LOGO.png" class="overlay-logo">
+
+                <h1>First Time Here?</h1>
+
+                <p>
+
+                    Activate your account using your Registration Number before casting your vote.
+
+                </p>
+
+                <button class="ghost" id="activateBtn">
+
+                    ACTIVATE ACCOUNT
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+//========================
+// SELECT ELEMENTS
+//========================
+
+const container = document.getElementById("container");
+
+const activateBtn = document.getElementById("activateBtn");
+
+const loginBtn = document.getElementById("loginBtn");
+
+
+//========================
+// SLIDE TO ACTIVATION
+//========================
+
+activateBtn.addEventListener("click", () => {
+
+    container.classList.add("active");
+
+});
+
+
+//========================
+// SLIDE TO LOGIN
+//========================
+
+loginBtn.addEventListener("click", () => {
+
+    container.classList.remove("active");
+
+});
+
+
+//========================
+// SHOW / HIDE PASSWORD
+//========================
+
+const eyes = document.querySelectorAll(".toggle-password");
+
+eyes.forEach((eye)=>{
+
+    eye.addEventListener("click",()=>{
+
+        const input = eye.previousElementSibling;
+
+        if(input.type==="password"){
+
+            input.type="text";
+
+            eye.innerHTML='<i class="fa-solid fa-eye-slash"></i>';
+
+        }
+
+        else{
+
+            input.type="password";
+
+            eye.innerHTML='<i class="fa-solid fa-eye"></i>';
+
+        }
+
+    });
+
+});
+
+
+//========================
+// INPUT EFFECT
+//========================
+
+const inputs = document.querySelectorAll(".input-box input");
+
+inputs.forEach((input)=>{
+
+    input.addEventListener("focus",()=>{
+
+        input.parentElement.style.border="2px solid #800000";
+
+    });
+
+    input.addEventListener("blur",()=>{
+
+        input.parentElement.style.border="none";
+
+    });
+
+});
+
+
+
+
+
+
+
+</script>
+
 </body>
 </html>
