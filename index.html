@@ -1,116 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome page</title>
+
+    <title>Shanahan University Student Union Election</title>
+
+    <link rel="stylesheet" href="welcome.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <style>
-    body{
-        background-color: rgb(133, 129, 129);   
-    }
+/*==============================
+        GOOGLE FONT
+===============================*/
 
-button{
-        background-color: gold;
-        color: black;
-        padding: 12px 25px;
-        border-radius: 25% 10%;
-        font-size: 20px;
-        font-weight: bolder;
-        cursor: pointer;
-        size: 30px;
-}
-button2{
-        background-color: gold;
-        color: black;
-        padding: 12px 25px;
-        border-radius: 25% 10%;
-        font-size: 35px;
-        font-weight: bolder;
-        cursor: pointer;
-        size: 40px;
-}
-.header{
-    display: flex;
-    align-items: center;
-    
-    background:linear-gradient(135deg,#800000,#b22222);
-    padding: 20px;
-}
-
-img{
-    width: 100px;
-    height: 100px;
-}
-
-.scroll{
-    overflow: hidden;
-    white-space: nowrap;
-    flex: 1;
-}
-
-.scroll p{
-    display: inline-block;
-    color: gold;
-    font-size: 40px;
-    font-weight: bold;
-
-    animation: slide 12s linear infinite;
-}
-
-@keyframes slide{
-
-    from{
-        transform: translateX(100%);
-    }
-
-    to{
-        transform: translateX(-100%);
-    }
-
-}
-.a{
-    color: black;
-    text-shadow: 2px 2px 3px rgb(172, 201, 9);
-    font-size: 30px;
-    font-weight: bolder;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+
+    background:#f3f3f3;
+    color:#800000;
+
 }
 
-.banner{
-    position:relative;
+/*==============================
+            HEADER
+===============================*/
+
+header{
+
+    width:100%;
+    height:90px;
+
+    background:#800000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+}
+
+.logo-area{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+.logo-area img{
+
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:white;
+    padding:4px;
+
+}
+
+.logo-area h2{
+
+    color:#FFD700;
+    font-size:34px;
+    letter-spacing:1px;
+
+}
+
+/*==============================
+        LOGIN BUTTON
+===============================*/
+
+.login-btn{
+
+    text-decoration:none;
+
+    background:#FFD700;
+
+    color:#800000;
+
+    padding:14px 40px;
+
+    border-radius:40px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.login-btn:hover{
+
+    background:white;
+
+    transform:translateY(-4px);
+
+}
+
+/*==============================
+        HERO SECTION
+===============================*/
+
+.hero{
+
     width:100%;
     height:600px;
-    overflow:hidden;
-    
-}
 
-.banner img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    align-items: center;
+    background:url("SHANAHAN-ROUND-LOGO.png") center/420px no-repeat;
+
+    position:relative;
+
 }
 
 .overlay{
-    position:absolute;
-    top:0;
-    left:0;
-    width: 100%;
-     height:100%;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(128,0,0,.60);
+
     display:flex;
+    flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
+    text-align:center;
+
 }
 
 #text{
@@ -122,64 +158,737 @@ body{
     opacity:1;
     padding:20px;
 }
-.footer{
-    
-    background:linear-gradient(135deg,#800000,#b22222);
-    padding: 10px;
-    color: white;
-    font-size: 20px;
+
+
+
+/*==============================
+       UNIVERSITY
+===============================*/
+
+.university{
+
+    padding:70px 20px;
+
+    text-align:center;
+
 }
+
+.university h1{
+
+    font-size:60px;
+
+    color:#800000;
+
+    text-shadow:0 0 12px rgba(255,215,0,.35);
+
+}
+
+.university h2{
+
+    font-size:48px;
+
+    margin-top:10px;
+
+    color:#800000;
+
+}
+
+/*==============================
+            MOTTO
+===============================*/
+
+.motto{
+
+    background:#800000;
+
+    color:#FFD700;
+
+    padding:50px;
+
+    text-align:center;
+
+}
+
+.motto h2{
+
+    margin:12px 0;
+
+    font-size:30px;
+
+    letter-spacing:2px;
+
+}
+
+/*==============================
+            ABOUT
+===============================*/
+
+.about{
+
+    width:90%;
+
+    max-width:1000px;
+
+    margin:80px auto;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+}
+
+.about img{
+
+    width:120px;
+
+    margin-bottom:20px;
+
+}
+
+.about h2{
+
+    color:#800000;
+
+    margin-bottom:20px;
+
+    font-size:40px;
+
+}
+
+.about p{
+
+    font-size:20px;
+
+    line-height:35px;
+
+    color:#555;
+
+}
+
+/*==============================
+        FEATURE CARDS
+===============================*/
+
+.features{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.card i{
+
+    font-size:55px;
+
+    color:#FFD700;
+
+    margin-bottom:25px;
+
+}
+
+.card h3{
+
+    color:#800000;
+
+    margin-bottom:15px;
+
+}
+
+.card p{
+
+    color:#555;
+
+    line-height:28px;
+
+}
+
+/*==============================
+            FOOTER
+===============================*/
+
+footer{
+
+    background:#800000;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:60px;
+
+
+
+}
+
+
+
+
+
+/*==================================
+        TABLET RESPONSIVE
+==================================*/
+
+@media (max-width:992px){
+
+header{
+
+    padding:0 30px;
+
+}
+
+.logo-area h2{
+
+    font-size:28px;
+
+}
+
+.login-btn{
+
+    padding:12px 30px;
+
+}
+
+.overlay h1{
+
+    font-size:55px;
+
+}
+
+.overlay p{
+
+    font-size:22px;
+
+}
+
+.university h1{
+
+    font-size:45px;
+
+}
+
+.university h2{
+
+    font-size:35px;
+
+}
+
+.features{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+
+
+
+
+/*==================================
+        MOBILE RESPONSIVE
+==================================*/
+
+@media (max-width:768px){
+
+header{
+
+    flex-direction:column;
+
+    height:auto;
+
+    padding:20px;
+
+    gap:20px;
+
+}
+
+.logo-area{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.logo-area h2{
+
+    font-size:30px;
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.hero{
+
+    height:450px;
+
+    background-size:250px;
+
+}
+
+.overlay h1{
+
+    font-size:42px;
+
+    padding:0 15px;
+
+}
+
+.overlay p{
+
+    font-size:18px;
+
+}
+
+.university{
+
+    padding:50px 20px;
+
+}
+
+.university h1{
+
+    font-size:36px;
+
+}
+
+.university h2{
+
+    font-size:28px;
+
+}
+
+.motto{
+
+    padding:35px 20px;
+
+}
+
+.motto h2{
+
+    font-size:22px;
+
+}
+
+.about{
+
+    width:95%;
+
+    padding:35px 20px;
+
+}
+
+.about img{
+
+    width:90px;
+
+}
+
+.about h2{
+
+    font-size:28px;
+
+}
+
+.about p{
+
+    font-size:17px;
+
+    line-height:30px;
+
+}
+
+.features{
+
+    grid-template-columns:1fr;
+
+}
+
+.card{
+
+    padding:35px 25px;
+
+}
+
+footer{
+
+    font-size:15px;
+
+}
+
+}
+
+
+
+
+
+
+/*==================================
+      SMALL SCREEN DEVICES
+==================================*/
+
+@media (max-width:480px){
+
+.overlay h1{
+
+    font-size:34px;
+
+}
+
+.overlay p{
+
+    font-size:16px;
+
+}
+
+.logo-area h2{
+
+    font-size:25px;
+
+}
+
+.login-btn{
+
+    padding:12px;
+
+    font-size:15px;
+
+}
+
+.university h1{
+
+    font-size:28px;
+
+}
+
+.university h2{
+
+    font-size:22px;
+
+}
+
+.motto h2{
+
+    font-size:18px;
+
+}
+
+.about h2{
+
+    font-size:24px;
+
+}
+
+.about p{
+
+    font-size:15px;
+
+}
+
+.card h3{
+
+    font-size:20px;
+
+}
+
+.card p{
+
+    font-size:15px;
+
+}
+
+}
+
+
 </style>
-
 <body>
-     <!-- this is for the login button code--><br>
-   <p align="right"> 
-    <button onclick="window.location.href='login.html'">
-          LOGIN 
-    </button>
-</p> <br>
-   
-<!--this is for the header border-->
-    <div class="header">
-        <img src="sug logo.webp">&nbsp;
-    <div class="scroll">
-        <p> WELCOME TO SUG ELECTION PORTAL</p>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo-area">
+
+        <img src="SHANAHAN-ROUND-LOGO.png" alt="SUG Logo">
+
+        <h2>SUG ELECT</h2>
+
     </div>
-</div>
-<br>
-<div class="a"><p align="center">SHANAHAN UNIVERSITY, ONITSHA</p></div><br><br>
 
-<!--this is for the animated banner-->
-<div class="banner">
+    <a href="login.html" class="login-btn">
 
-    <img src="SHANAHAN-ROUND-LOGO.png" alt="Background Image">
+        LOGIN 
+
+    </a>
+
+</header>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
 
     <div class="overlay">
 
-        <h1 id="text">
-            Student Union Election Portal
-        </h1>
+        <h1 id="text">Student Union Election Portal</h1>
+
+        
+    </div>
+
+</section>
+
+
+<!-- ================= UNIVERSITY ================= -->
+
+<section class="university">
+
+    <h1>
+
+        SHANAHAN UNIVERSITY
+
+    </h1>
+
+    <h2>
+
+        ONITSHA
+
+    </h2>
+
+</section>
+
+
+<!-- ================= MOTTO ================= -->
+
+<section class="motto">
+
+    <h2>
+
+        ONE STUDENT • ONE VOTE
+
+    </h2>
+
+    <h2>
+
+        ONE FUTURE
+
+    </h2>
+
+    <h2>
+
+        MAKE YOUR VOTE COUNT
+
+    </h2>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about">
+
+    <img src="SHANAHAN-ROUND-LOGO.png" alt="Logo">
+
+    <h2>
+
+        Students' Union Election Portal
+
+    </h2>
+
+    <p>
+
+        Welcome to the official online voting platform of Shanahan University Students' Union Government (SUG).
+
+        This portal enables eligible students to vote securely, fairly and transparently from anywhere.
+
+    </p>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <div class="card">
+
+        <i class="fa-solid fa-user-check"></i>
+
+        <h3>Verified Students</h3>
+
+        <p>
+
+            Only registered students can vote.
+
+        </p>
 
     </div>
 
-</div><br><br>
+    <div class="card">
 
-    <p align="center"> 
-    <button2 onclick="window.location.href='login.html'">
-          LOGIN 
-    </button>
-</p> <br><br>
+        <i class="fa-solid fa-shield-halved"></i>
 
-        <div class="footer">
-<p align="center">
-    •	ONE STUDENT
-    •	 ONE VOTE 
-    •	ONE FUTURE •
+        <h3>Secure Voting</h3>
 
-    <br> MAKE YOURS COUNT</p>
-        </div>
+        <p>
+
+            Every vote is protected and counted once.
+
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <h3>Transparent Results</h3>
+
+        <p>
+
+            Election results are displayed fairly after voting ends.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+
+        © 2026 Shanahan University Student Union Election Portal
+
+    </p>
+
+</footer>
 
 <script>
+
+//======================================
+// PAGE LOADED ANIMATION
+//======================================
+
+window.addEventListener("load", () => {
+
+    document.body.style.opacity = "1";
+
+});
+
+
+//======================================
+// SMOOTH SCROLL
+//======================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
+
+
+//======================================
+// LOGIN BUTTON EFFECT
+//======================================
+
+const loginButton = document.querySelector(".login-btn");
+
+loginButton.addEventListener("mouseenter", () => {
+
+    loginButton.style.transform = "translateY(-4px) scale(1.05)";
+
+});
+
+loginButton.addEventListener("mouseleave", () => {
+
+    loginButton.style.transform = "translateY(0) scale(1)";
+
+});
+
+
+//======================================
+// FEATURE CARD ANIMATION
+//======================================
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-10px)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "translateY(0px)";
+
+    });
+
+});
+
+
+
     const messages = [
     "Student Union Election Portal",
     "Your Voice. Your Vote. Your Future.",
@@ -213,9 +922,7 @@ setInterval(function(){
 },3000);
 
 </script>
+
 </body>
+
 </html>
-
-
-
-
