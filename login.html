@@ -2,30 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanahan University SUG Election Portal</title>
 
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Shanahan University SUG Election Portal
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="login.css">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <style>
 
-
-/*=========================
+/*====================================
         GOOGLE FONT
-=========================*/
+====================================*/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/*=========================
-          RESET
-=========================*/
+
+/*====================================
+        RESET
+====================================*/
 
 *{
     margin:0;
@@ -34,131 +45,102 @@
     font-family:'Poppins',sans-serif;
 }
 
-/*=========================
-          BODY
-=========================*/
+
+/*====================================
+        BODY
+====================================*/
 
 body{
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    background:linear-gradient(135deg,#800000,#a00000);
 
     min-height:100vh;
 
-    background:linear-gradient(135deg,#800000,#5a0000);
+    display:flex;
 
-    overflow:hidden;
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
 
 }
 
-/*=========================
-        CONTAINER
-=========================*/
+
+/*====================================
+        MAIN CONTAINER
+====================================*/
 
 .container{
 
     position:relative;
 
-    width:950px;
+    width:420px;
+
     max-width:100%;
 
-    height:620px;
+    min-height:760px;
 
-    background:#ffffff;
+    background:#fff;
 
-    border-radius:20px;
+    border-radius:30px;
 
     overflow:hidden;
 
-    box-shadow:0 20px 45px rgba(0,0,0,.35);
+    box-shadow:0 15px 40px rgba(0,0,0,.30);
 
 }
 
 
-
-
-
-/*=========================
-      FORM CONTAINER
-=========================*/
+/*====================================
+        FORM CONTAINER
+====================================*/
 
 .form-container{
 
-    position:absolute;
+    width:100%;
 
-    top:0;
+    padding:40px 35px;
 
-    width:50%;
-
-    height:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transition:.7s ease-in-out;
+    transition:.5s;
 
 }
-
-/* Login */
-
-.login-container{
-
-    left:0;
-
-    z-index:2;
-
-}
-
-/* Activation */
 
 .activate-container{
 
-    left:0;
-
-    opacity:0;
-
-    z-index:1;
+    display:none;
 
 }
 
 
-
-
-/*=========================
-         FORM
-=========================*/
-
-form{
-
-    width:82%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
+/*====================================
+        LOGO
+====================================*/
 
 .logo{
 
-    width:95px;
+    width:90px;
 
-    margin-bottom:15px;
+    display:block;
+
+    margin:0 auto 20px;
 
 }
 
+
+/*====================================
+        HEADINGS
+====================================*/
+
 h2{
+
+    text-align:center;
 
     color:#800000;
 
-    margin-bottom:10px;
-
     font-size:30px;
+
+    margin-bottom:10px;
 
 }
 
@@ -168,37 +150,37 @@ h2{
 
     color:#666;
 
-    margin-bottom:25px;
+    font-size:15px;
 
     line-height:24px;
 
+    margin-bottom:35px;
+
 }
 
-
-
-
-
-/*=========================
-      INPUT BOX
-=========================*/
+/*====================================
+        INPUT BOX
+====================================*/
 
 .input-box{
 
+    position:relative;
+
     width:100%;
 
-    height:55px;
+    height:58px;
 
     display:flex;
 
     align-items:center;
 
-    background:#f3f3f3;
+    background:#F4F4F4;
 
-    border-radius:10px;
+    border:2px solid transparent;
 
-    padding:0 18px;
+    border-radius:15px;
 
-    margin:10px 0;
+    margin-bottom:20px;
 
     transition:.3s;
 
@@ -206,66 +188,150 @@ h2{
 
 .input-box:hover{
 
-    box-shadow:0 8px 20px rgba(128,0,0,.15);
+    border-color:#FFD700;
 
 }
 
-.input-box i{
+.input-box:focus-within{
+
+    border-color:#800000;
+
+    box-shadow:0 0 10px rgba(128,0,0,.15);
+
+}
+
+
+/*====================================
+        LEFT ICON
+====================================*/
+
+.input-box > i:first-child{
+
+    width:55px;
+
+    text-align:center;
 
     color:#800000;
 
+    font-size:18px;
+
 }
+
+
+/*====================================
+        INPUT FIELD
+====================================*/
 
 .input-box input{
 
-    flex:1;
+    width:100%;
+
+    height:100%;
 
     border:none;
 
     outline:none;
 
-    background:none;
+    background:transparent;
 
-    padding-left:12px;
+    color:#333;
 
     font-size:15px;
 
+    padding-right:55px;
+
 }
+
+.input-box input::placeholder{
+
+    color:#999;
+
+}
+
+
+/*====================================
+        PASSWORD EYE
+====================================*/
 
 .toggle-password{
 
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:35px;
+
+    height:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     cursor:pointer;
 
+}
+
+.toggle-password i{
+
     color:#800000;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.toggle-password:hover i{
+
+    color:#FFD700;
 
 }
 
 
+/*====================================
+      FORGOT PASSWORD
+====================================*/
 
+.forgot{
 
+    display:block;
 
-
-/*=========================
-      BUTTONS
-=========================*/
-
-.forgot-password{
-
-    margin:15px 0;
-
-    color:#800000;
+    text-align:right;
 
     text-decoration:none;
 
+    color:#800000;
+
     font-size:14px;
+
+    margin-bottom:25px;
+
+    transition:.3s;
 
 }
 
+.forgot:hover{
+
+    color:#FFD700;
+
+}
+
+
+/*====================================
+        LOGIN BUTTON
+====================================*/
+
 .btn{
 
-    width:210px;
+    width:100%;
 
-    height:50px;
+    height:55px;
 
     border:none;
 
@@ -281,7 +347,7 @@ h2{
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
@@ -289,223 +355,162 @@ h2{
 
     background:#800000;
 
-    color:#ffffff;
+    color:#fff;
 
     transform:translateY(-3px);
 
-}
-
-.ghost{
-
-    width:210px;
-
-    height:50px;
-
-    border:2px solid white;
-
-    border-radius:30px;
-
-    background:transparent;
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:.3s;
+    box-shadow:0 8px 20px rgba(128,0,0,.30);
 
 }
 
-.ghost:hover{
+.btn:active{
 
-    background:white;
-
-    color:#800000;
+    transform:scale(.98);
 
 }
-
-
-
-
-
-
 /*====================================
-        OVERLAY CONTAINER
+        BOTTOM PANEL
 ====================================*/
 
-.overlay-container{
+.bottom-panel{
 
-    position:absolute;
+    width:100%;
 
-    top:0;
-    left:50%;
+    background:linear-gradient(135deg,#800000,#A00000);
 
-    width:50%;
-    height:100%;
+    border-radius:35px 35px 0 0;
 
-    overflow:hidden;
-
-    transition:all .7s ease-in-out;
-
-    z-index:100;
-
-}
-
-/*====================================
-            OVERLAY
-====================================*/
-
-.overlay{
-
-    position:relative;
-
-    left:-100%;
-
-    width:200%;
-    height:100%;
-
-    background:linear-gradient(135deg,#800000,#b8860b);
-
-    color:#fff;
-
-    transition:all .7s ease-in-out;
-
-}
-
-/*====================================
-        OVERLAY PANELS
-====================================*/
-
-.overlay-panel{
-
-    position:absolute;
-
-    width:50%;
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
+    padding:35px 30px;
 
     text-align:center;
 
-    padding:40px;
+    color:#fff;
+
+    transition:.5s ease;
 
 }
-
-.overlay-left{
-
-    left:0;
-
-    transform:translateX(-20%);
-
-}
-
-.overlay-right{
-
-    right:0;
-
-}
-
-.overlay-logo{
-
-    width:120px;
-
-    margin-bottom:20px;
-
-}
-
-.overlay-panel h1{
-
-    font-size:32px;
-
-    margin-bottom:15px;
-
-}
-
-.overlay-panel p{
-
-    font-size:15px;
-
-    line-height:28px;
-
-    margin-bottom:30px;
-
-}
-
 
 
 /*====================================
-        SLIDE ANIMATION
+        PANEL LOGO
+====================================*/
+
+.panel-logo{
+
+    width:75px;
+
+    margin-bottom:18px;
+
+}
+
+
+/*====================================
+        PANEL TITLE
+====================================*/
+
+.bottom-panel h2{
+
+    color:#FFD700;
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+
+/*====================================
+        PANEL TEXT
+====================================*/
+
+.bottom-panel p{
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    line-height:24px;
+
+    margin-bottom:25px;
+
+}
+
+
+/*====================================
+        SWITCH BUTTON
+====================================*/
+
+.switch-btn{
+
+    width:230px;
+
+    max-width:100%;
+
+    height:50px;
+
+    border:2px solid #FFD700;
+
+    background:transparent;
+
+    color:#FFD700;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.switch-btn:hover{
+
+    background:#FFD700;
+
+    color:#800000;
+
+    transform:translateY(-2px);
+
+}
+
+
+/*====================================
+        ACTIVE MODE
 ====================================*/
 
 .container.active .login-container{
 
-    transform:translateX(100%);
-
-    opacity:0;
+    display:none;
 
 }
 
 .container.active .activate-container{
 
-    transform:translateX(100%);
-
-    opacity:1;
-
-    z-index:5;
+    display:block;
 
 }
-
-.container.active .overlay-container{
-
-    transform:translateX(-100%);
-
-}
-
-.container.active .overlay{
-
-    transform:translateX(50%);
-
-}
-
-.container.active .overlay-left{
-
-    transform:translateX(0);
-
-}
-
-.container.active .overlay-right{
-
-    transform:translateX(20%);
-
-}
-
-
-
-
 
 
 /*====================================
-        BEAUTIFUL EFFECTS
+        PANEL ANIMATION
 ====================================*/
 
-.container{
+.bottom-panel{
 
-    animation:fadeIn .8s ease;
+    animation:fadeUp .5s ease;
 
 }
 
-@keyframes fadeIn{
+@keyframes fadeUp{
 
     from{
 
         opacity:0;
 
-        transform:scale(.9);
+        transform:translateY(20px);
 
     }
 
@@ -513,171 +518,32 @@ h2{
 
         opacity:1;
 
-        transform:scale(1);
+        transform:translateY(0);
 
     }
 
 }
 
-.input-box:focus-within{
-
-    border:2px solid #FFD700;
-
-}
-
-.logo{
-
-    transition:.4s;
-
-}
-
-.logo:hover{
-
-    transform:rotate(8deg) scale(1.08);
-
-}
-
 
 /*====================================
-        MOBILE RESPONSIVE DESIGN
+        MOBILE RESPONSIVE
 ====================================*/
 
-@media screen and (max-width:768px){
-
-body{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    background:linear-gradient(135deg,#800000,#b8860b);
-    padding:20px 0;
-    overflow-x:hidden;
-    min-height:100vh;
-}
+@media(max-width:768px){
 
 .container{
 
-    width:95%;
-    max-width:420px;
-    min-height:850px;
-    height:auto;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-}
-
-/* ================= Overlay ================= */
-
-.overlay-container{
-
-    position:relative;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:230px;
-
-}
-
-.overlay{
-
-    width:100%;
-    height:100%;
-
-    left:0;
-
-    transform:none !important;
-
-}
-
-.overlay-left{
-
-    display:none;
-
-}
-
-.overlay-right{
-
-    width:100%;
-    left:0;
-
-    transform:none;
-
-}
-
-.overlay-logo{
-
-    width:70px;
-
-    margin-bottom:10px;
-
-}
-
-.overlay-panel h1{
-
-    font-size:28px;
-
-}
-
-.overlay-panel p{
-
-    font-size:15px;
-
-    line-height:24px;
-
-}
-
-/* ================= Forms ================= */
-
-.form{
-
-    position:relative;
-
     width:100%;
 
-    height:auto;
+    min-height:100vh;
 
-    padding:30px 0;
-
-    transform:none !important;
+    border-radius:0;
 
 }
 
-.login-form{
+.form-container{
 
-    display:flex;
-
-}
-
-.activation-form{
-
-    display:none;
-
-    opacity:1;
-
-}
-
-.container.active .login-form{
-
-    display:none;
-
-}
-
-.container.active .activation-form{
-
-    display:flex;
-
-}
-
-/* ================= Form ================= */
-
-form{
-
-    width:90%;
+    padding:35px 25px;
 
 }
 
@@ -689,366 +555,327 @@ form{
 
 h2{
 
-    font-size:30px;
+    font-size:26px;
 
 }
 
 .subtitle{
 
-    font-size:15px;
-
-    margin-bottom:20px;
+    font-size:14px;
 
 }
 
-.input-box{
+.bottom-panel{
 
-    height:55px;
+    padding:30px 25px;
 
 }
 
-.btn{
+.bottom-panel h2{
+
+    font-size:24px;
+
+}
+
+.switch-btn{
 
     width:100%;
 
 }
 
-.ghost{
-
-    width:90%;
-
-    max-width:250px;
-
-    margin-top:10px;
-
 }
-
-/* Remove desktop animation */
-
-.container.active .overlay-container{
-
-    transform:none;
-
-}
-
-.container.active .overlay{
-
-    transform:none;
-
-}
-
-}
-
-
-
-
 
 
 </style>
 <body>
 
-<div class="container" id="container">
+<div class="container">
 
-    <!-- ================= LOGIN ================= -->
+    <!-- =========================
+         LOGIN FORM
+    ========================== -->
 
     <div class="form-container login-container">
 
-        <form action="#" onsubmit="return false;">
+        <img src="SHANAHAN-ROUND-LOGO.png"
+             class="logo"
+             alt="Shanahan University Logo">
 
-            <img src="SHANAHAN-ROUND-LOGO.png" class="logo">
+        <h2>Student Login</h2>
 
-            <h2>Student Login</h2>
+        <p class="subtitle">
+            Login using your Registration Number
+            and Password.
+        </p>
 
-            <p class="subtitle">
-                Login with your Registration Number and Password.
-            </p>
+        <form>
+
+            <!-- Registration Number -->
 
             <div class="input-box">
 
                 <i class="fa-solid fa-id-card"></i>
 
-                <input type="text"
-                       placeholder="Registration Number"
-                       required>
+                <input
+                    type="text"
+                    placeholder="Registration Number"
+                    required>
 
             </div>
+
+            <!-- Password -->
 
             <div class="input-box">
 
                 <i class="fa-solid fa-lock"></i>
 
-                <input type="password"
-                       id="loginPassword"
-                       placeholder="Password"
-                       required>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    required>
 
-                <span class="toggle-password">
+                <span class="toggle-password"
+                      onclick="togglePassword('loginPassword',this)">
+
                     <i class="fa-solid fa-eye"></i>
+
                 </span>
 
             </div>
 
-            <a href="#" class="forgot-password">
+            <a href="#" class="forgot">
                 Forgot Password?
             </a>
+             <!--REMEMBER TO CHANGE THE BUTTON TYPE TO SUBMIT BEFORE CONNECTING TO THE BACKEND-->
+            <button onclick="window.location.href='student dashboard.html'" class="btn">
 
-            <button onclick="window.location.href='student portal.html'"class="btn">
                 LOGIN
+
             </button>
 
         </form>
 
     </div>
-
-    <!-- ================= ACTIVATION ================= -->
+        <!-- =========================
+         ACTIVATION FORM
+    ========================== -->
 
     <div class="form-container activate-container">
 
-        <form action="#" onsubmit="return false;">
+        <img src="SHANAHAN-ROUND-LOGO.png"
+             class="logo"
+             alt="Shanahan University Logo">
 
-            <img src="SHANAHAN-ROUND-LOGO.png" class="logo">
+        <h2>First Time Activation</h2>
 
-            <h2>First Time Activation</h2>
+        <p class="subtitle">
+            Create your password to activate
+            your voting account.
+        </p>
 
-            <p class="subtitle">
-                Activate your account before voting.
-            </p>
+        <form>
+
+            <!-- Registration Number -->
 
             <div class="input-box">
 
                 <i class="fa-solid fa-id-card"></i>
 
-                <input type="text"
-                       placeholder="Registration Number"
-                       required>
+                <input
+                    type="text"
+                    placeholder="Registration Number"
+                    required>
 
             </div>
+
+            <!-- Create Password -->
 
             <div class="input-box">
 
                 <i class="fa-solid fa-lock"></i>
 
-                <input type="password"
-                       id="newPassword"
-                       placeholder="Create Password"
-                       required>
+                <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="Create Password"
+                    required>
 
-                <span class="toggle-password">
+                <span class="toggle-password"
+                      onclick="togglePassword('newPassword',this)">
+
                     <i class="fa-solid fa-eye"></i>
+
                 </span>
 
             </div>
+
+            <!-- Confirm Password -->
 
             <div class="input-box">
 
                 <i class="fa-solid fa-lock"></i>
 
-                <input type="password"
-                       id="confirmPassword"
-                       placeholder="Confirm Password"
-                       required>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required>
 
-                <span class="toggle-password">
+                <span class="toggle-password"
+                      onclick="togglePassword('confirmPassword',this)">
+
                     <i class="fa-solid fa-eye"></i>
+
                 </span>
 
             </div>
 
-            <button class="btn">
+            <button type="submit" class="btn">
+
                 ACTIVATE ACCOUNT
+
             </button>
 
         </form>
 
     </div>
 
-    <!-- ================= OVERLAY ================= -->
 
-    <div class="overlay-container">
+    <!-- =========================
+         BOTTOM PANEL
+    ========================== -->
 
-        <div class="overlay">
+    <div class="bottom-panel">
 
-            <!-- LEFT -->
+        <img src="SHANAHAN-ROUND-LOGO.png"
+             class="panel-logo"
+             alt="Logo">
 
-            <div class="overlay-panel overlay-left">
+        <h2 id="panelTitle">
+            Welcome Student!
+        </h2>
 
-                <img src="SHANAHAN-ROUND-LOGO.png"
-                     class="overlay-logo">
+        <p id="panelText">
 
-                <h1>Welcome Back!</h1>
+            First time using the Election Portal?
 
-                <p>
-                    Already activated your account?
-                    Login here.
-                </p>
+            Activate your account to begin.
 
-                <button class="ghost" id="loginBtn">
-                    LOGIN
-                </button>
+        </p>
 
-            </div>
+        <button id="switchBtn"
+                class="switch-btn">
 
-            <!-- RIGHT -->
+            ACTIVATE ACCOUNT
 
-            <div class="overlay-panel overlay-right">
-
-                <img src="SHANAHAN-ROUND-LOGO.png"
-                     class="overlay-logo">
-
-                <h1>Welcome Student!</h1>
-
-                <p>
-                    First time using the portal?
-                    Activate your account to continue.
-                </p>
-
-                <button class="ghost" id="activateBtn">
-                    ACTIVATE
-                </button>
-
-            </div>
-
-        </div>
+        </button>
 
     </div>
 
 </div>
 
 <script>
+/*====================================
+      SELECT ELEMENTS
+====================================*/
 
-//====================================
-// SELECT ELEMENTS
-//====================================
+const container = document.querySelector(".container");
 
-const container = document.getElementById("container");
-const activateBtn = document.getElementById("activateBtn");
-const loginBtn = document.getElementById("loginBtn");
+const loginContainer = document.querySelector(".login-container");
+const activateContainer = document.querySelector(".activate-container");
 
-//====================================
-// SLIDE TO ACTIVATION
-//====================================
+const switchBtn = document.getElementById("switchBtn");
 
-activateBtn.addEventListener("click", () => {
+const panelTitle = document.getElementById("panelTitle");
+const panelText = document.getElementById("panelText");
 
-    container.classList.add("active");
+let activateMode = false;
 
-});
 
-//====================================
-// SLIDE TO LOGIN
-//====================================
+/*====================================
+      SWITCH BETWEEN FORMS
+====================================*/
 
-loginBtn.addEventListener("click", () => {
+switchBtn.addEventListener("click", function () {
 
-    container.classList.remove("active");
+    activateMode = !activateMode;
 
-});
+    container.classList.toggle("active");
 
-//====================================
-// SHOW / HIDE PASSWORD
-//====================================
+    if (activateMode) {
 
-const togglePasswords = document.querySelectorAll(".toggle-password");
+        loginContainer.style.display = "none";
+        activateContainer.style.display = "block";
 
-togglePasswords.forEach((eye) => {
+        panelTitle.innerHTML = "Welcome Back!";
 
-    eye.addEventListener("click", () => {
+        panelText.innerHTML =
+        "Already activated your account? Login below and cast your vote.";
 
-        const input = eye.previousElementSibling;
-        const icon = eye.querySelector("i");
-
-        if (input.type === "password") {
-
-            input.type = "text";
-
-            icon.classList.remove("fa-eye");
-            icon.classList.add("fa-eye-slash");
-
-        } else {
-
-            input.type = "password";
-
-            icon.classList.remove("fa-eye-slash");
-            icon.classList.add("fa-eye");
-
-        }
-
-    });
-
-});
-
-//====================================
-// INPUT FOCUS EFFECT
-//====================================
-
-const inputs = document.querySelectorAll(".input-box input");
-
-inputs.forEach((input) => {
-
-    input.addEventListener("focus", () => {
-
-        input.parentElement.style.border = "2px solid #FFD700";
-
-    });
-
-    input.addEventListener("blur", () => {
-
-        input.parentElement.style.border = "none";
-
-    });
-
-});
-
-//====================================
-// PASSWORD MATCH VALIDATION
-//====================================
-
-const activateForm = document.querySelector(".activate-container form");
-
-activateForm.addEventListener("submit", (e) => {
-
-    e.preventDefault();
-
-    const password = document.getElementById("newPassword").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    if (password !== confirmPassword) {
-
-        alert("Passwords do not match!");
-
-        return;
+        switchBtn.innerHTML = "BACK TO LOGIN";
 
     }
 
-    alert("Account Activated Successfully!");
+    else {
+
+        activateContainer.style.display = "none";
+        loginContainer.style.display = "block";
+
+        panelTitle.innerHTML = "Welcome Student!";
+
+        panelText.innerHTML =
+        "First time using the Election Portal? Activate your account to begin.";
+
+        switchBtn.innerHTML = "ACTIVATE ACCOUNT";
+
+    }
 
 });
 
-//====================================
-// LOGIN FORM
-//====================================
 
-const loginForm = document.querySelector(".login-container form");
+/*====================================
+      SHOW/HIDE PASSWORD
+====================================*/
 
-loginForm.addEventListener("submit", (e) => {
+function togglePassword(inputId, element) {
 
-    e.preventDefault();
+    const input = document.getElementById(inputId);
 
-    alert("Login Successful!");
+    const icon = element.querySelector("i");
 
-});
+    if (input.type === "password") {
 
-//====================================
-// BUTTON ANIMATION
-//====================================
+        input.type = "text";
 
-const buttons = document.querySelectorAll("button");
+        icon.classList.remove("fa-eye");
 
-buttons.forEach((button) => {
+        icon.classList.add("fa-eye-slash");
+
+    }
+
+    else {
+
+        input.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+
+        icon.classList.add("fa-eye");
+
+    }
+
+}
+
+
+/*====================================
+      BUTTON CLICK EFFECT
+====================================*/
+
+document.querySelectorAll(".btn,.switch-btn").forEach(button => {
 
     button.addEventListener("mousedown", () => {
 
-        button.style.transform = "scale(0.95)";
+        button.style.transform = "scale(.97)";
 
     });
 
@@ -1058,24 +885,18 @@ buttons.forEach((button) => {
 
     });
 
-    button.addEventListener("mouseleave", () => {
-
-        button.style.transform = "scale(1)";
-
-    });
-
 });
 
-//====================================
-// PAGE LOAD ANIMATION
-//====================================
+
+/*====================================
+      PAGE LOAD
+====================================*/
 
 window.addEventListener("load", () => {
 
     document.body.style.opacity = "1";
 
 });
-
 
 </script>
 
