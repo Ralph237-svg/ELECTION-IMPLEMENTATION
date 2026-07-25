@@ -22,7 +22,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "images/candidates/john-okafor.jpg",
+    image: "SHANAHAN-ROUND-LOGO.png",
 
     campaignPoster: "images/posters/john-poster.jpg",
 
@@ -58,6 +58,8 @@ const candidates = [
     email: "john@sug.edu.ng",
 
     phone: "+2348000000001",
+
+    manifestoFile: "SELECT ELEMENTS.docx",
 
     facebook: "#",
 
