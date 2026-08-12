@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>My Campaign | Shanahan University SUG Election Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+/*=====================================
+        GLOBAL
+======================================*/
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+background:#f4f6fb;
+color:#333;
+opacity:0;
+transition:.5s;
+
+}
+
+/*=====================================
+        SIDEBAR
+======================================*/
+
+.sidebar{
+
+width:260px;
+background:#8B0000;
+color:#fff;
+position:fixed;
+top:0;
+left:0;
+height:100%;
+overflow-y:auto;
+transition:.4s;
+z-index:1000;
+
+}
+
+.sidebar-header{
+
+padding:20px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+.logo{
+
+width:70px;
+height:70px;
+border-radius:50%;
+margin-bottom:10px;
+
+}
+
+.sidebar-header h2{
+
+font-size:22px;
+
+}
+
+.sidebar ul{
+
+list-style:none;
+
+}
+
+.sidebar ul li a{
+
+display:flex;
+align-items:center;
+gap:12px;
+padding:16px 20px;
+color:#fff;
+text-decoration:none;
+transition:.3s;
+
+}
+
+.sidebar ul li a:hover,
+
+.sidebar ul li a.active{
+
+background:#FFD700;
+color:#8B0000;
+font-weight:600;
+
+}
+
+/*=====================================
+        MOBILE MENU
+======================================*/
+
+.menu-btn{
+
+display:none;
+position:fixed;
+top:15px;
+left:15px;
+width:45px;
+height:45px;
+background:#8B0000;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:20px;
+cursor:pointer;
+z-index:1200;
+
+}
+
+.close-menu{
+
+display:none;
+background:none;
+border:none;
+color:#fff;
+font-size:22px;
+cursor:pointer;
+
+}
+
+/*=====================================
+        MAIN CONTENT
+======================================*/
+
+.main-content{
+
+margin-left:260px;
+padding:30px;
+min-height:100vh;
+
+}
+
+.topbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+
+}
+
+.topbar h1{
+
+font-size:30px;
+color:#8B0000;
+
+}
+
+.notification{
+
+position:relative;
+text-decoration:none;
+font-size:24px;
+color:#8B0000;
+
+}
+
+.notification span{
+
+position:absolute;
+top:-8px;
+right:-10px;
+width:20px;
+height:20px;
+border-radius:50%;
+background:red;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:11px;
+
+}
+
+/*=====================================
+      CAMPAIGN STATUS
+======================================*/
+
+.campaign-status{
+
+margin-bottom:30px;
+
+}
+
+.status-card{
+
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+border-left:6px solid #FFD700;
+
+}
+
+.status-card h2{
+
+color:#8B0000;
+margin-bottom:15px;
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+#campaignStatus{
+
+font-size:18px;
+font-weight:600;
+color:#e67e22;
+
+}
+
+
+/*=====================================
+      STUDENT INFORMATION
+======================================*/
+
+.student-info,
+
+.campaign-form,
+
+.upload-section,
+
+.social-section{
+
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+margin-bottom:30px;
+
+}
+
+.student-info h2,
+
+.campaign-form h2,
+
+.upload-section h2,
+
+.social-section h2{
+
+color:#8B0000;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+
+/*=====================================
+          FORM GRID
+======================================*/
+
+.form-grid,
+
+.student-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+
+}
+
+
+/*=====================================
+        FORM CONTROLS
+======================================*/
+
+label{
+
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:#555;
+
+}
+
+input,
+
+select,
+
+textarea{
+
+width:100%;
+padding:14px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:15px;
+outline:none;
+transition:.3s;
+
+}
+
+input:focus,
+
+select:focus,
+
+textarea:focus{
+
+border-color:#8B0000;
+box-shadow:0 0 8px rgba(139,0,0,.2);
+
+}
+
+textarea{
+
+resize:vertical;
+min-height:120px;
+
+}
+
+
+/*=====================================
+      READ ONLY INPUTS
+======================================*/
+
+input[readonly]{
+
+background:#f2f2f2;
+cursor:not-allowed;
+color:#666;
+font-weight:500;
+
+}
+
+
+/*=====================================
+        FILE INPUT
+======================================*/
+
+input[type="file"]{
+
+padding:10px;
+background:#fafafa;
+border:2px dashed #ccc;
+cursor:pointer;
+
+}
+
+input[type="file"]:hover{
+
+border-color:#8B0000;
+
+}
+
+/*=====================================
+        ACTION BUTTONS
+======================================*/
+
+.campaign-actions{
+
+display:flex;
+justify-content:center;
+gap:20px;
+margin:35px 0;
+flex-wrap:wrap;
+
+}
+
+.draft-btn,
+
+.submit-btn{
+
+padding:14px 35px;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.draft-btn{
+
+background:#888;
+color:#fff;
+
+}
+
+.draft-btn:hover{
+
+background:#666;
+
+}
+
+.submit-btn{
+
+background:#8B0000;
+color:#fff;
+
+}
+
+.submit-btn:hover{
+
+background:#FFD700;
+color:#8B0000;
+
+}
+
+/*=====================================
+      CAMPAIGN PREVIEW
+======================================*/
+
+.campaign-preview{
+
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+margin-bottom:40px;
+
+}
+
+.campaign-preview h2{
+
+color:#8B0000;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+#previewCard{
+
+border:2px dashed #ccc;
+border-radius:12px;
+padding:30px;
+text-align:center;
+background:#fafafa;
+color:#777;
+transition:.3s;
+
+}
+
+#previewCard:hover{
+
+border-color:#8B0000;
+
+}
+
+/*=====================================
+            FOOTER
+======================================*/
+
+footer{
+
+margin-left:260px;
+width:calc(100% - 260px);
+background:#8B0000;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:40px;
+
+}
+
+footer p{
+
+margin:5px 0;
+
+}
+
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8B0000;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+.container{
+ animation:fadeIn .6s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*=====================================
+        RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+.sidebar{
+
+left:-260px;
+
+}
+
+.sidebar.active{
+
+left:0;
+
+}
+
+.menu-btn{
+
+display:block;
+
+}
+
+.close-menu{
+
+display:block;
+position:absolute;
+top:20px;
+right:20px;
+
+}
+
+.main-content{
+
+margin-left:0;
+padding-top:80px;
+
+}
+
+footer{
+
+margin-left:0;
+width:100%;
+
+}
+
+.student-grid,
+
+.form-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.topbar{
+
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+
+}
+
+.campaign-actions{
+
+flex-direction:column;
+
+}
+
+.draft-btn,
+
+.submit-btn{
+
+width:100%;
+
+}
+
+.status-card,
+
+.student-info,
+
+.campaign-form,
+
+.upload-section,
+
+.social-section,
+
+.campaign-preview{
+
+padding:20px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!--==============================
+        MOBILE MENU
+================================-->
+
+<button class="menu-btn">
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+<!--==============================
+          SIDEBAR
+================================-->
+
+<aside class="sidebar">
+
+<div class="sidebar-header">
+
+<img src="SHANAHAN-ROUND-LOGO.png"
+class="logo"
+alt="Logo">
+
+<h2>Shanahan SUG</h2>
+
+<button class="close-menu">
+
+<i class="fas fa-times"></i>
+
+</button>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="student dashboard.html">
+
+<i class="fas fa-home"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="view candidates.html">
+
+<i class="fas fa-users"></i>
+
+View Candidates
+
+</a>
+
+</li>
+
+<li>
+
+<a href="my-campaign.html"
+class="active">
+
+<i class="fas fa-bullhorn"></i>
+
+My Campaign
+
+</a>
+
+</li>
+
+<li>
+
+<a href="voting.html">
+
+<i class="fas fa-vote-yea"></i>
+
+Vote
+
+</a>
+
+</li>
+
+<li>
+
+<a href="results.html">
+
+<i class="fas fa-chart-column"></i>
+
+Election Results
+
+</a>
+
+</li>
+
+<li>
+
+<a href="notification.html">
+
+<i class="fas fa-bell"></i>
+
+Notifications
+
+</a>
+
+</li>
+
+<li>
+
+<a href="profile.html">
+
+<i class="fas fa-user"></i>
+
+My Profile
+
+</a>
+
+</li>
+
+<li>
+
+<a href="logout.html">
+
+<i class="fas fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!--==============================
+        MAIN CONTENT
+================================-->
+
+<main class="main-content">
+
+<header class="topbar">
+
+<h1>
+
+My Campaign
+
+</h1>
+
+<a href="notification.html"
+class="notification">
+
+<i class="fas fa-bell"></i>
+
+<span>3</span>
+
+</a>
+
+</header>
+
+<!--==============================
+      CAMPAIGN STATUS
+================================-->
+
+<section class="campaign-status">
+
+<div class="status-card">
+
+<h2>
+
+<i class="fas fa-circle-info"></i>
+
+Campaign Status
+
+</h2>
+
+<p id="campaignStatus">
+
+Not Submitted
+
+</p>
+
+</div>
+
+</section>
+
+<!--==============================
+      STUDENT INFORMATION
+================================-->
+
+<section class="student-info">
+
+<h2>
+
+<i class="fas fa-user-graduate"></i>
+
+Student Information
+
+</h2>
+
+<div class="student-grid">
+
+<div>
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="studentName"
+readonly>
+
+</div>
+
+<div>
+
+<label>Registration Number</label>
+
+<input
+type="text"
+id="studentRegNo"
+readonly>
+
+</div>
+
+<div>
+
+<label>Faculty</label>
+
+<input
+type="text"
+id="studentFaculty"
+readonly>
+
+</div>
+
+<div>
+
+<label>Department</label>
+
+<input
+type="text"
+id="studentDepartment"
+readonly>
+
+</div>
+
+<div>
+
+<label>Level</label>
+
+<input
+type="text"
+id="studentLevel"
+readonly>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==============================
+        CAMPAIGN FORM
+================================-->
+
+<section class="campaign-form">
+
+<h2>
+
+<i class="fas fa-bullhorn"></i>
+
+Campaign Information
+
+</h2>
+
+<form id="campaignForm">
+
+<div class="form-grid">
+
+<div>
+
+<label>
+
+Position Contesting
+
+</label>
+
+<select id="position" required>
+
+<option value="">
+
+-- Select Position --
+
+</option>
+
+<option value="President">
+
+President
+
+</option>
+
+<option value="Vice President">
+
+Vice President
+
+</option>
+
+<option value="General Secretary">
+
+General Secretary
+
+</option>
+
+<option value="Assistant General Secretary">
+
+Assistant General Secretary
+
+</option>
+
+<option value="Treasurer">
+
+Treasurer
+
+</option>
+
+<option value="Director of Sports">
+
+Director of Sports
+
+</option>
+
+<option value="Director of Socials">
+
+Director of Socials
+
+</option>
+
+<option value="Welfare Director">
+
+Welfare Director
+
+</option>
+
+<option value="Public Relations Officer">
+
+Public Relations Officer
+
+</option>
+
+</select>
+
+</div>
+
+<div>
+
+<label>
+
+Campaign Slogan
+
+</label>
+
+<input
+
+type="text"
+
+id="slogan"
+
+placeholder="Enter your campaign slogan"
+
+required>
+
+</div>
+
+</div>
+
+<div>
+
+<label>
+
+Biography
+
+</label>
+
+<textarea
+
+id="biography"
+
+rows="6"
+
+placeholder="Write a short biography..."
+
+required>
+
+</textarea>
+
+</div>
+
+<div>
+
+<label>
+
+Manifesto
+
+</label>
+
+<textarea
+
+id="manifesto"
+
+rows="8"
+
+placeholder="Write your manifesto..."
+
+required>
+
+</textarea>
+
+</div>
+
+<div>
+
+<label>
+
+Achievements / Experience
+
+</label>
+
+<textarea
+
+id="achievements"
+
+rows="6"
+
+placeholder="List your achievements and leadership experience...">
+
+</textarea>
+
+</div>
+
+</form>
+
+</section>
+
+<!--==============================
+        FILE UPLOADS
+================================-->
+
+<section class="upload-section">
+
+<h2>
+
+<i class="fas fa-upload"></i>
+
+Campaign Uploads
+
+</h2>
+
+<div class="form-grid">
+
+<div>
+
+<label>
+
+Profile Picture
+
+</label>
+
+<input
+
+type="file"
+
+id="profileImage"
+
+accept="image/*"
+
+required>
+
+</div>
+
+<div>
+
+<label>
+
+Manifesto PDF
+
+</label>
+
+<input
+
+type="file"
+
+id="manifestoPDF"
+
+accept=".pdf">
+
+</div>
+
+</div>
+
+</section>
+
+<!--==============================
+      SOCIAL MEDIA LINKS
+================================-->
+
+<section class="social-section">
+
+<h2>
+
+<i class="fas fa-share-alt"></i>
+
+Social Media Links
+
+</h2>
+
+<div class="form-grid">
+
+<div>
+
+<label>
+
+Facebook
+
+</label>
+
+<input
+
+type="url"
+
+id="facebook"
+
+placeholder="https://facebook.com/...">
+
+</div>
+
+<div>
+
+<label>
+
+Instagram
+
+</label>
+
+<input
+
+type="url"
+
+id="instagram"
+
+placeholder="https://instagram.com/...">
+
+</div>
+
+<div>
+
+<label>
+
+X (Twitter)
+
+</label>
+
+<input
+
+type="url"
+
+id="twitter"
+
+placeholder="https://x.com/...">
+
+</div>
+
+<div>
+
+<label>
+
+WhatsApp
+
+</label>
+
+<input
+
+type="url"
+
+id="whatsapp"
+
+placeholder="https://wa.me/...">
+
+</div>
+
+</div>
+
+</section>
+
+<!--==============================
+        ACTION BUTTONS
+================================-->
+
+<section class="campaign-actions">
+
+<button
+type="button"
+id="saveDraft"
+class="draft-btn">
+
+<i class="fas fa-floppy-disk"></i>
+
+Save Draft
+
+</button>
+
+<button
+type="button"
+id="submitCampaign"
+class="submit-btn">
+
+<i class="fas fa-paper-plane"></i>
+
+Submit Campaign
+
+</button>
+
+</section>
+
+<!--==============================
+      CAMPAIGN PREVIEW
+================================-->
+
+<section class="campaign-preview">
+
+<h2>
+
+<i class="fas fa-eye"></i>
+
+Campaign Preview
+
+</h2>
+
+<div id="previewCard">
+
+<p>
+
+Your campaign preview will appear here after filling the form.
+
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<!--==============================
+            FOOTER
+================================-->
+
+<footer>
+
+<p>
+
+© 2026 Shanahan University Student Union Government Election Portal.
+
+</p>
+
+</footer>
+
+<!--==============================
+        JAVASCRIPT FILES
+================================-->
+
+<script >
+/*=====================================
+        PAGE LOAD
+======================================*/
+
+window.addEventListener("load",()=>{
+
+    document.body.style.opacity="1";
+
+});
+
+
+/*=====================================
+        SIDEBAR
+======================================*/
+
+const menuBtn =
+document.querySelector(".menu-btn");
+
+const closeBtn =
+document.querySelector(".close-menu");
+
+const sidebar =
+document.querySelector(".sidebar");
+
+menuBtn.addEventListener("click",()=>{
+
+    sidebar.classList.add("active");
+
+});
+
+closeBtn.addEventListener("click",()=>{
+
+    sidebar.classList.remove("active");
+
+});
+
+
+/*=====================================
+    LOAD STUDENT INFORMATION
+======================================*/
+
+/* Temporary data
+   Backend will replace this later */
+
+const student={
+
+    name:"Ralph Okafor",
+
+    regNo:"SHU/CSC/24/001",
+
+    faculty:"Computing",
+
+    department:"Computer Science",
+
+    level:"200 Level"
+
+};
+
+document.getElementById("studentName").value=
+
+student.name;
+
+document.getElementById("studentRegNo").value=
+
+student.regNo;
+
+document.getElementById("studentFaculty").value=
+
+student.faculty;
+
+document.getElementById("studentDepartment").value=
+
+student.department;
+
+document.getElementById("studentLevel").value=
+
+student.level;
+
+
+/*=====================================
+      CAMPAIGN STATUS
+======================================*/
+
+/* Temporary
+   Backend will control this */
+
+let campaignStatus="Not Submitted";
+
+document.getElementById(
+
+    "campaignStatus"
+
+).textContent=campaignStatus;
+
+/*=====================================
+      GET FORM ELEMENTS
+======================================*/
+
+const position =
+document.getElementById("position");
+
+const slogan =
+document.getElementById("slogan");
+
+const biography =
+document.getElementById("biography");
+
+const manifesto =
+document.getElementById("manifesto");
+
+const achievements =
+document.getElementById("achievements");
+
+const previewCard =
+document.getElementById("previewCard");
+
+const profileImage =
+document.getElementById("profileImage");
+
+
+/*=====================================
+      LIVE PREVIEW
+======================================*/
+
+function updatePreview(){
+
+    previewCard.innerHTML = `
+
+        <h2>${student.name}</h2>
+
+        <p>
+
+        <strong>Position:</strong>
+
+        ${position.value || "Not Selected"}
+
+        </p>
+
+        <p>
+
+        <strong>Slogan:</strong>
+
+        ${slogan.value || "No slogan yet"}
+
+        </p>
+
+        <hr>
+
+        <p>
+
+        <strong>Biography</strong>
+
+        </p>
+
+        <p>
+
+        ${biography.value || "No biography yet."}
+
+        </p>
+
+        <hr>
+
+        <p>
+
+        <strong>Manifesto</strong>
+
+        </p>
+
+        <p>
+
+        ${manifesto.value || "No manifesto yet."}
+
+        </p>
+
+        <hr>
+
+        <p>
+
+        <strong>Achievements</strong>
+
+        </p>
+
+        <p>
+
+        ${achievements.value || "No achievements yet."}
+
+        </p>
+
+    `;
+
+}
+
+
+/*=====================================
+      UPDATE PREVIEW
+======================================*/
+
+position.addEventListener("change",updatePreview);
+
+slogan.addEventListener("input",updatePreview);
+
+biography.addEventListener("input",updatePreview);
+
+manifesto.addEventListener("input",updatePreview);
+
+achievements.addEventListener("input",updatePreview);
+
+
+/*=====================================
+    PROFILE IMAGE PREVIEW
+======================================*/
+
+profileImage.addEventListener("change",()=>{
+
+    const file = profileImage.files[0];
+
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        previewCard.innerHTML =
+
+        `
+
+        <img
+
+        src="${e.target.result}"
+
+        style="width:140px;
+               height:140px;
+               border-radius:50%;
+               object-fit:cover;
+               margin-bottom:20px;">
+
+        `
+
+        + previewCard.innerHTML;
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/*=====================================
+      SAVE DRAFT
+======================================*/
+
+document.getElementById(
+
+"saveDraft"
+
+)
+
+.addEventListener("click",()=>{
+
+    const draft={
+
+        position:position.value,
+
+        slogan:slogan.value,
+
+        biography:biography.value,
+
+        manifesto:manifesto.value,
+
+        achievements:achievements.value
+
+    };
+
+    localStorage.setItem(
+
+        "campaignDraft",
+
+        JSON.stringify(draft)
+
+    );
+
+    alert(
+
+        "Draft saved successfully."
+
+    );
+
+});
+
+
+updatePreview();
+
+/*=====================================
+      LOAD SAVED DRAFT
+======================================*/
+
+const savedDraft =
+
+localStorage.getItem(
+
+    "campaignDraft"
+
+);
+
+if(savedDraft){
+
+    const draft =
+
+    JSON.parse(savedDraft);
+
+    position.value =
+
+    draft.position || "";
+
+    slogan.value =
+
+    draft.slogan || "";
+
+    biography.value =
+
+    draft.biography || "";
+
+    manifesto.value =
+
+    draft.manifesto || "";
+
+    achievements.value =
+
+    draft.achievements || "";
+
+    updatePreview();
+
+}
+
+
+/*=====================================
+      SUBMIT CAMPAIGN
+======================================*/
+
+document.getElementById(
+
+"submitCampaign"
+
+)
+
+.addEventListener("click",()=>{
+
+    if(
+
+        position.value==="" ||
+
+        slogan.value==="" ||
+
+        biography.value==="" ||
+
+        manifesto.value===""
+
+    ){
+
+        alert(
+
+        "Please complete all required fields."
+
+        );
+
+        return;
+
+    }
+
+    const campaign={
+
+        studentName:student.name,
+
+        regNo:student.regNo,
+
+        faculty:student.faculty,
+
+        department:student.department,
+
+        level:student.level,
+
+        position:position.value,
+
+        slogan:slogan.value,
+
+        biography:biography.value,
+
+        manifesto:manifesto.value,
+
+        achievements:achievements.value,
+
+        status:"Pending Approval"
+
+    };
+
+    localStorage.setItem(
+
+        "candidateCampaign",
+
+        JSON.stringify(campaign)
+
+    );
+
+    campaignStatus="Pending Approval";
+
+    document.getElementById(
+
+        "campaignStatus"
+
+    ).textContent=campaignStatus;
+
+    localStorage.removeItem(
+
+        "campaignDraft"
+
+    );
+
+    alert(
+
+        "Campaign submitted successfully.\n\nAwaiting admin approval."
+
+    );
+
+});
+
+
+/*=====================================
+      CLOSE SIDEBAR
+======================================*/
+
+document.querySelectorAll(
+
+".sidebar a"
+
+)
+
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        if(window.innerWidth<=992){
+
+            sidebar.classList.remove("active");
+
+        }
+
+    });
+
+});
+
+
+/*=====================================
+      PAGE READY
+======================================*/
+
+console.log(
+
+"My Campaign Loaded Successfully."
+
+);
+
+</script>
+
+</body>
+
+</html>

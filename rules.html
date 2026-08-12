@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rules</title>
+
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+/*=====================================
+        GOOGLE FONT
+======================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/*=====================================
+            RESET
+======================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+/*=====================================
+            BODY
+======================================*/
+
+body{
+
+    background:#f5f6fa;
+    color:#333;
+
+}
+
+
+/*=====================================
+        CONTAINER
+======================================*/
+
+.container{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/*=====================================
+            SIDEBAR
+======================================*/
+
+.sidebar{
+
+    width:260px;
+
+    background:#800000;
+
+    color:#fff;
+
+    padding:25px 20px;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    height:100%;
+
+    overflow-y:auto;
+
+    transition:.4s;
+
+    z-index:1000;
+
+}
+
+/*=====================================
+        LOGO
+======================================*/
+
+.logo-section{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.sidebar-logo{
+
+    width:85px;
+
+    margin-bottom:15px;
+
+}
+
+.logo-section h2{
+
+    color:#FFD700;
+
+    font-size:22px;
+
+}
+
+
+/*=====================================
+        SIDEBAR MENU
+======================================*/
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar ul li{
+
+    margin:15px 0;
+
+}
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+    font-size:16px;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:#FFD700;
+
+    color:#800000;
+
+}
+
+.sidebar ul li.active a{
+
+    background:#FFD700;
+
+    color:#800000;
+
+}
+
+
+
+
+.menu-btn{
+
+    display:none;
+
+    position:fixed;
+
+    top:20px;
+
+    left:20px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    background:#800000;
+
+    color:#fff;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    z-index:1200;
+
+    font-size:20px;
+
+}
+
+.close-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    border:none;
+
+    background:none;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+}
+
+/*=====================================
+            MAIN CONTENT
+======================================*/
+
+.main-content{
+
+    margin-left:260px;
+
+    width: calc(100% - 260px);
+
+    padding:35px;
+
+}
+
+/*=====================================
+            TOP BAR
+======================================*/
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    padding: 20px 30px;    
+
+
+
+}
+
+.topbar h1{
+
+    color:#800000;
+
+    font-size:30px;
+
+}
+
+.notification{
+    width: 50px;
+
+    height: 50px;
+    
+    border-radius: 50%;
+    
+    background: white;
+    
+    font-size: 20px;
+    
+    color: #800000;
+    
+    display: flex;
+    
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+    
+    justify-content: center;
+    
+    align-items: center;
+    
+    transition: 1s;
+    
+    position: relative;
+}
+
+.notification:hover{
+    background: #FFD700;
+   
+    color: #800000;
+   
+     transform:translatey(-4px);
+}
+
+.notification span{
+    
+
+    top:-5px;
+
+    right:-5px;
+
+    width:20px;
+
+    height:20px;
+
+    background:red;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:11px;
+    
+    position:absolute;
+}
+
+/*================================
+        RULES CONTAINER
+================================*/
+
+.rules-card{
+    position: relative;
+    width: 90%;
+    min-height: 650px;
+    background: white;
+    border-radius: 15px;
+    margin-left: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+    padding: 30px;
+    transition: 3s;
+}
+.rules-card:hover{
+
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.18);
+}
+
+/*================================
+        FLOATING ICON
+================================*/
+.top-icon{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: -30px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+    color: #FFD700;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 33px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.rules-card h2{ 
+    color: #800000;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+.subtitle{
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    
+}
+
+.divider{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+margin-bottom: 20px;
+
+}
+
+.divider span{
+
+width: 170px;
+
+height:2px;
+
+background:#FFD700;
+
+}
+
+.divider i{
+
+color:#FFD700;
+
+font-size:12px;
+
+}
+
+.list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.A{
+    
+    background: rgb(247, 245, 245);
+    display: flex;
+    gap: 30px;
+    border-radius: 9px;
+    width: 95%;
+    min-height: 60px;
+    margin-bottom: 20px;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,.15);
+    padding: 15px;
+    transition: 3s;
+}
+
+.A:hover{
+     background:#fff8e8;
+
+    border-left:5px solid #FFD700;
+
+    transform:translateX(8px);
+
+}
+
+.B{
+    width: 25px;
+    height: 25px;
+    background: #800000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.A i{
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.A p{
+    text-spacing-trim: normal;
+}
+
+
+/*===================================
+        BUTTON GROUP
+===================================*/
+.sec{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 20px;
+    color: white;
+}
+
+.dashboard{
+    background: #800000;
+    
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+    cursor: pointer;
+ 
+}
+.dashboard a{
+    color: #FFD700;
+    font-size:16px;
+    text-decoration:none;
+}
+
+.dashboard:hover{
+    background: #FFD700;
+    transform: translateY(-4px);
+}
+.dashboard a:hover{
+    color: #800000;
+    
+}
+
+.vote{
+     background: #FFD700;
+    
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+    cursor: pointer;
+
+}
+
+.vote a{
+     color: #800000;
+    font-size:16px;
+    text-decoration:none;
+}
+
+.vote:hover{
+    background: #800000;
+    transform: translateY(-4px);
+}
+.vote a:hover{
+    color: #FFD700;
+    
+}
+
+footer{
+
+    
+
+    width: 100%;
+
+    background:#800000;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:40px;
+
+    margin-left: -40px;
+
+    margin-right: 0px;
+
+}
+
+
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8B0000;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+.container{
+ animation:fadeIn .6s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*=====================================
+        TABLET RESPONSIVE
+======================================*/
+
+@media (max-width:992px){
+
+.sidebar{
+
+left:-260px;
+
+}
+
+.sidebar.active{
+
+left:0;
+
+}
+
+.menu-btn{
+
+display:block;
+
+}
+
+.close-menu{
+
+display:block;
+
+}
+
+.main-content{
+
+margin-left:0;
+
+width:100%;
+
+padding:80px 20px 30px;
+
+}
+
+.rules-card{
+
+width:100%;
+
+margin-left:0;
+
+height:auto;
+
+min-height:650px;
+
+}
+
+.divider span{
+
+width:120px;
+
+}
+
+footer{
+
+position:relative;
+
+margin-left:0;
+
+width:100%;
+
+}
+
+}
+
+/*=====================================
+        MOBILE RESPONSIVE
+======================================*/
+
+@media(max-width:768px){
+
+.topbar{
+
+flex-direction:row;
+
+gap:20px;
+
+text-align:center;
+
+}
+
+.topbar h1{
+
+font-size:24px;
+
+}
+
+.rules-card{
+
+padding:25px 15px;
+
+}
+
+.rules-card h2{
+
+font-size:24px;
+
+}
+
+.subtitle{
+
+font-size:14px;
+
+}
+
+.A{
+
+height:auto;
+
+padding:15px;
+
+gap:15px;
+
+align-items:flex-start;
+
+}
+
+.A p{
+
+font-size:14px;
+
+}
+
+.divider span{
+
+width:60px;
+
+}
+
+.sec{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.dashboard,
+
+.vote{
+
+justify-content:center;
+
+width:100%;
+
+}
+
+}
+
+/*=====================================
+        SMALL PHONES
+======================================*/
+
+@media(max-width:480px){
+
+.sidebar{
+
+width:230px;
+
+}
+
+.topbar h1{
+
+font-size:20px;
+
+}
+
+.notification{
+
+width:45px;
+
+height:45px;
+
+}
+
+.top-icon{
+
+width:60px;
+
+height:60px;
+
+font-size:28px;
+
+}
+
+.rules-card h2{
+
+font-size:21px;
+
+}
+
+.subtitle{
+
+font-size:13px;
+
+}
+
+.B{
+
+width:22px;
+
+height:22px;
+
+font-size:13px;
+
+}
+
+.A{
+
+padding:12px;
+
+}
+
+}
+ </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+<!--==============================
+        SIDEBAR
+===============================-->
+
+<aside class="sidebar">
+
+    <!-- Close Button (Mobile) -->
+
+    <button class="close-menu">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+    <div class="logo-section">
+
+        <img src="SHANAHAN-ROUND-LOGO.png"
+             class="sidebar-logo">
+
+        <h2>
+
+            SUG Election
+
+        </h2>
+
+    </div>
+
+    <ul>
+
+        <li>
+
+            <a href="student dashboard.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="view candidates.html">
+
+                <i class="fa-solid fa-users"></i>
+
+                View Candidates
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="voting.html">
+
+                <i class="fa-solid fa-check-to-slot"></i>
+
+                Vote
+
+            </a>
+
+        </li>
+
+        
+
+        <!-- Hidden unless approved -->
+
+        <li id="campaignMenu">
+
+            <a href="my-campaign.html">
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+                My Campaign
+
+            </a>
+
+        </li>
+
+         <li class="active">
+
+            <a href="rules.html">
+
+                <i class="fa-solid fa-book"></i>
+
+                Election Rules
+
+            </a>
+
+        </li>
+
+
+        <li>
+
+            <a href="notification.html">
+
+                <i class="fas fa-bell"></i>
+
+                Notifications
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="results.html">
+
+                <i class="fa-solid fa-chart-column"></i>
+
+                Results
+
+            </a>
+
+        </li>
+
+
+        <li>
+
+<a href="profile.html">
+
+<i class="fas fa-user"></i>
+
+My Profile
+
+</a>
+
+</li>
+
+
+        <li>
+
+            <a href="logout.html">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</aside>
+
+<!--==============================
+        MAIN CONTENT
+===============================-->
+
+<div class="main-content">
+
+<!--==============================
+        TOP BAR
+===============================-->
+
+<header class="topbar">
+
+    <button class="menu-btn">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+    <h1>
+    Election Rules
+</h1>
+
+    <a href="notification.html"
+       class="notification">
+
+        <i class="fa-solid fa-bell"></i>
+        <span>5</span>
+    </a>
+
+</header>
+
+<!--================================
+            RULES CARD
+=================================-->
+    <div class="rules-card">
+        <div class="top-icon">
+            <i class="fas fa-scale-balanced"></i>
+        </div>
+
+        <h2>
+            Election Rules & Guidelines
+
+        </h2>
+
+        <p class="subtitle">
+            Please read the following rules and instructions carefully before participating in the election.
+        </p>
+
+        <div class="divider">
+            <span></span>
+            <i class="fas fa-diamond"></i>
+            <span></span>
+        </div>
+<div class="list">
+        <div class="A">
+            <div class="B">
+                1
+            </div>
+
+            <i class="fas fa-check-circle"></i>
+
+            <p>
+                Every student is allowed to vote only once.
+            </p>
+        </div>
+
+            <div class="A">
+            <div class="B">
+                2
+            </div>
+
+            <i class="fas fa-clock"></i>
+
+            <p>
+                Voting will be open for the scheduled period only. Make sure to vote before the deadline.
+            </p>
+        </div>
+        <div class="A">
+            <div class="B">
+                3
+            </div>
+
+            <i class="fas fa-ban"></i>
+
+            <p>
+                Multiple voting or any attempt to manipulate the system will result to disqualification.
+            </p>
+        </div>
+        <div class="A">
+            <div class="B">
+                4
+            </div>
+
+            <i class="fas fa-bullhorn"></i>
+
+            <p>
+                Election results will be announced after the voting period has ended.
+            </p>
+        </div>
+        <div class="A">
+            <div class="B">
+                5
+            </div>
+
+            <i class="fas fa-lock"></i>
+
+            <p>
+                Keep your login details private and do not share them with anyone.
+            </p>
+        </div>
+</div>
+<div class="sec">
+        <div class="dashboard">
+            <a href="student dashboard.html">
+                Back to Dashboard
+            </a>
+        </div>
+
+        <div class="vote">
+            <a href="voting.html">
+                Proceed to vote
+            </a>
+        </div>
+</div>
+
+    </div>
+    <footer>
+        <p>
+
+        © 2026 Shanahan University
+        Student Union Government
+        Election Portal.
+
+    </p>
+
+    </footer>
+</div>
+
+    </div>
+
+<script>
+
+
+
+
+const sidebar=document.querySelector(".sidebar");
+
+const menuBtn=document.querySelector(".menu-btn");
+
+const closeBtn=document.querySelector(".close-menu");
+
+menuBtn.addEventListener("click",()=>{
+
+sidebar.classList.add("active");
+
+});
+
+closeBtn.addEventListener("click",()=>{
+
+sidebar.classList.remove("active");
+
+});
+
+document.querySelectorAll(".sidebar a")
+
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+if(window.innerWidth<=992){
+
+sidebar.classList.remove("active");
+
+}
+
+});
+
+});
+
+const cards=document.querySelectorAll(".A");
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateX(8px)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateX(0)";
+
+});
+
+});
+
+const vote=document.querySelector(".vote");
+
+vote.addEventListener("click",(e)=>{
+
+const proceed=confirm(
+
+"Have you read all the election rules?\n\nClick OK to continue."
+
+);
+
+if(!proceed){
+
+e.preventDefault();
+
+}
+
+});
+
+/*=====================================
+      MY CAMPAIGN
+======================================*/
+
+// false = ordinary student
+// true = approved candidate
+
+const isCandidate = false;
+
+const campaignMenu =
+document.getElementById("campaignMenu");
+
+const campaignCard =
+document.getElementById("campaignCard");
+
+if(!isCandidate){
+
+    campaignMenu.style.display = "none";
+
+    campaignCard.style.display = "none";
+
+}
+
+
+</script>
+</body>
+</html>
+
+
+
+

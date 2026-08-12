@@ -481,7 +481,7 @@ body{
 
     height:260px;
 
-    object-fit:cover;
+    object-fit:scale-down;
 
 }
 
@@ -693,6 +693,54 @@ footer p{
     margin:6px 0;
 
     font-size:14px;
+
+}
+
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8B0000;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+
+.candidate-section{
+
+   animation:fadeIn .7s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 }
 

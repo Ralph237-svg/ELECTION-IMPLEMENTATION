@@ -85,7 +85,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "images/candidates/grace-eze.jpg",
+    image: "sug logo.webp",
 
     campaignPoster: "images/posters/grace-poster.jpg",
 

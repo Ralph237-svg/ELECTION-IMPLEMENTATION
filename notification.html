@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | Shanahan University SUG Election Portal</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <style>
+/*=====================================
+            GOOGLE FONT
+======================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*=====================================
+              RESET
+======================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+body{
+
+    background:#f4f6f9;
+
+    color:#333;
+
+    overflow-x:hidden;
+
+}
+
+/*=====================================
+          MOBILE MENU BUTTON
+======================================*/
+
+.menu-btn{
+
+    position:fixed;
+
+    top:20px;
+
+    left:20px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#8B0000;
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:1200;
+
+}
+
+/*=====================================
+              SIDEBAR
+======================================*/
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:#8B0000;
+
+    color:#fff;
+
+    padding:20px 25px;
+
+    overflow-y:auto;
+
+    z-index:1000;
+
+    transition: 4s;
+}
+
+.sidebar-header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.logo{
+
+    width:80px;
+
+    margin-bottom:10px;
+
+}
+
+.sidebar-header h2{
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+.close-menu{
+
+    display:none;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar ul li{
+
+    margin:15px 0;
+
+
+}
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    padding:15px 25px;
+
+    transition:.3s;
+
+    border-radius: 12px;
+
+}
+
+.sidebar ul li a:hover,
+
+.sidebar ul li a.active{
+
+    background:#FFD700;
+
+    color:#8B0000;
+
+    font-weight:600;
+
+}
+
+/*=====================================
+          MAIN CONTENT
+======================================*/
+
+.main-content{
+
+    margin-left:260px;
+
+    padding:30px;
+
+}
+
+/*=====================================
+             TOP BAR
+======================================*/
+
+.topbar{
+
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 30px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+}
+
+.topbar h1{
+
+    color:#8B0000;
+
+    font-size:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+
+/*=====================================
+            SEARCH BOX
+======================================*/
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#fff;
+
+    padding:15px 20px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+
+}
+
+.search-box i{
+
+    color:#888;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+/*=====================================
+          FILTER BUTTONS
+======================================*/
+
+.filter-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:35px;
+
+}
+
+.filter-buttons button{
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:#e9e9e9;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:500;
+
+}
+
+.filter-buttons button:hover,
+
+.filter-buttons button.active{
+
+    background:#8B0000;
+
+    color:#fff;
+
+}
+/*=====================================
+      NOTIFICATIONS CONTAINER
+======================================*/
+
+.notifications-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/*=====================================
+          SECTION TITLE
+======================================*/
+
+.section-title{
+
+    font-size:22px;
+
+    color:#8B0000;
+
+    margin:15px 0;
+
+    font-weight:600;
+
+}
+
+/*=====================================
+        NOTIFICATION CARD
+======================================*/
+
+.notification-card{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    background:#fff;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    border-left:6px solid transparent;
+
+}
+
+.notification-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/*=====================================
+              ICON
+======================================*/
+
+.notification-card .icon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    color:#fff;
+
+    flex-shrink:0;
+
+}
+
+/*=====================================
+      NOTIFICATION CONTENT
+======================================*/
+
+.notification-content{
+
+    flex:1;
+
+}
+
+.notification-content h3{
+
+    color:#222;
+
+    margin-bottom:8px;
+
+    font-size:20px;
+
+}
+
+.notification-content p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+}
+
+/*=====================================
+      TIME & STATUS
+======================================*/
+
+.notification-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:10px;
+
+}
+
+.time{
+
+    color:#888;
+
+    font-size:13px;
+
+}
+
+/*=====================================
+              BADGES
+======================================*/
+
+.badge{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+.badge.new{
+
+    background:#d6f4ff;
+
+    color:#0077cc;
+
+}
+
+.badge.read{
+
+    background:#e8e8e8;
+
+    color:#666;
+
+}
+
+/*=====================================
+      NOTIFICATION TYPES
+======================================*/
+
+.announcement{
+
+    border-left-color:#2196F3;
+
+}
+
+.announcement .icon{
+
+    background:#2196F3;
+
+}
+
+.voting{
+
+    border-left-color:#4CAF50;
+
+}
+
+.voting .icon{
+
+    background:#4CAF50;
+
+}
+
+.results{
+
+    border-left-color:#FFD700;
+
+}
+
+.results .icon{
+
+    background:#FFD700;
+
+    color:#8B0000;
+
+}
+
+.warning{
+
+    border-left-color:#FF9800;
+
+}
+
+.warning .icon{
+
+    background:#FF9800;
+
+}
+
+.approved{
+
+    border-left-color:#2E7D32;
+
+}
+
+.approved .icon{
+
+    background:#2E7D32;
+
+}
+
+.rejected{
+
+    border-left-color:#D32F2F;
+
+}
+
+.rejected .icon{
+
+    background:#D32F2F;
+
+}
+
+/*=====================================
+        UNREAD EFFECT
+======================================*/
+
+.unread{
+
+    background:#f8fcff;
+
+}
+
+.unread .notification-content h3{
+
+    font-weight:700;
+
+}
+/*=====================================
+        INFORMATION BOX
+======================================*/
+
+.notification-note{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-top:40px;
+
+    padding:20px;
+
+    background:#fff8e6;
+
+    border-left:5px solid #FFD700;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.notification-note i{
+
+    font-size:24px;
+
+    color:#FFD700;
+
+}
+
+.notification-note p{
+
+    color:#555;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+}
+
+/*=====================================
+            FOOTER
+======================================*/
+
+footer{
+
+    margin-left:260px;
+
+    background: #8B0000;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:50px;
+
+    border-top:1px solid #ddd;
+
+}
+
+footer p{
+
+    color: white;
+
+    margin:5px 0;
+
+}
+
+/*=====================================
+          PAGE ANIMATION
+======================================*/
+
+.main-content{
+
+    animation:fadeIn .7s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=====================================
+      CARD HOVER ANIMATION
+======================================*/
+
+.notification-card:hover .icon{
+
+    transform:rotate(10deg) scale(1.08);
+
+    transition:.3s;
+
+}
+
+/*=====================================
+      SCROLL BAR
+======================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8B0000;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f2f2f2;
+
+}
+
+/*=====================================
+        TABLET RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+    .sidebar{
+
+        left:-260px;
+
+        transition:.3s;
+
+    }
+
+    .sidebar.active{
+
+        left:0;
+
+    }
+
+    .close-menu{
+
+        display:block;
+
+        position:absolute;
+
+        top:15px;
+
+        right:15px;
+
+        background:none;
+
+        border:none;
+
+        color:#fff;
+
+        font-size:22px;
+
+        cursor:pointer;
+
+    }
+
+    .main-content{
+
+        margin-left:0;
+
+        padding:90px 20px 30px;
+
+    }
+
+    footer{
+
+        margin-left:0;
+
+    }
+
+}
+
+/*=====================================
+      MOBILE RESPONSIVE
+======================================*/
+
+@media(max-width:768px){
+
+    .topbar{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+
+    }
+
+    .topbar h1{
+
+        font-size:24px;
+
+    }
+
+    .notification-card{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .notification-info{
+
+        align-items:center;
+
+    }
+
+    .notification-note{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+    .filter-buttons{
+
+        justify-content:center;
+
+    }
+
+}
+
+/*=====================================
+        SMALL PHONES
+======================================*/
+
+@media(max-width:480px){
+
+    .topbar h1{
+
+        font-size:20px;
+
+    }
+
+    .search-box{
+
+        padding:12px 15px;
+
+    }
+
+    .notification-card{
+
+        padding:15px;
+
+    }
+
+    .notification-content h3{
+
+        font-size:18px;
+
+    }
+
+    .notification-content p{
+
+        font-size:14px;
+
+    }
+
+    .section-title{
+
+        font-size:20px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!--==============================
+        MOBILE MENU BUTTON
+================================-->
+
+<button class="menu-btn">
+
+    <i class="fas fa-bars"></i>
+
+</button>
+
+<!--==============================
+            SIDEBAR
+================================-->
+
+<div class="sidebar">
+
+    <button class="close-menu">
+
+        <i class="fas fa-times"></i>
+
+    </button>
+
+    <div class="sidebar-header">
+
+        <img src="SHANAHAN-ROUND-LOGO.png" class="logo">
+
+        <h2>Shanahan SUG</h2>
+
+    </div>
+
+    <ul>
+
+        <li><a href="student dashboard.html"><i class="fas fa-home"></i>Dashboard</a></li>
+
+        <li><a href="view candidates.html"><i class="fas fa-users"></i>View Candidates</a></li>
+
+        <li><a href="voting.html"><i class="fas fa-vote-yea"></i>Vote</a></li>
+
+        <li><a href="my-campaign.html"><i class="fas fa-bullhorn"></i>My Campaign</a></li>
+
+        <li><a href="notification.html" class="active"><i class="fas fa-bell"></i>Notifications</a></li>
+
+        <li><a href="results.html"><i class="fas fa-chart-column"></i>Election Results</a></li>
+
+        <li><a href="rules.html"><i class="fas fa-scale-balanced"></i>Election Rules</a></li>
+
+        <li><a href="profile.html"><i class="fas fa-user"></i>My Profile</a></li>
+
+        <li><a href="logout.html"><i class="fas fa-right-from-bracket"></i>Logout</a></li>
+
+    </ul>
+
+</div>
+
+<!--==============================
+        MAIN CONTENT
+================================-->
+ 
+    <div class="main-content">
+
+    <!-- Top Bar -->
+
+    <div class="topbar">
+
+        <h1>
+
+            <i class="fas fa-bell"></i>
+
+            Notifications
+
+        </h1>
+
+        
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <i class="fas fa-search"></i>
+
+        <input type="text"
+            placeholder="Search notifications...">
+
+    </div>
+
+    <!-- Filter Buttons -->
+
+    <div class="filter-buttons">
+
+        <button class="active">All</button>
+
+        <button>Unread</button>
+
+        <button>Announcements</button>
+
+        <button>Voting</button>
+
+        <button>Campaign</button>
+
+        <button>Results</button>
+
+    </div>
+
+    <!-- Notifications Container -->
+
+    <div class="notifications-container">
+
+<!--==============================
+                TODAY
+        ==============================-->
+
+        <h2 class="section-title">Today</h2>
+
+        <div class="notification-card unread announcement">
+
+            <div class="icon">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Election Announcement</h3>
+
+                <p>
+                    The SUG General Election will hold on
+                    Friday, 25th July 2026.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">2 mins ago</span>
+
+                <span class="badge new">New</span>
+
+            </div>
+
+        </div>
+
+        <div class="notification-card unread voting">
+
+            <div class="icon">
+                <i class="fas fa-vote-yea"></i>
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Voting Starts Soon</h3>
+
+                <p>
+                    Voting begins in less than 24 hours.
+                    Make sure you are prepared.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">1 hour ago</span>
+
+                <span class="badge new">New</span>
+
+            </div>
+
+        </div>
+
+        <div class="notification-card unread results">
+
+            <div class="icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Election Results Update</h3>
+
+                <p>
+                    Election results will be published
+                    immediately after voting closes.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">2 hours ago</span>
+
+                <span class="badge new">New</span>
+
+            </div>
+
+        </div>
+
+        <!--==============================
+              YESTERDAY
+        ==============================-->
+
+        <h2 class="section-title">Yesterday</h2>
+
+        <div class="notification-card approved">
+
+            <div class="icon">
+
+                <i class="fas fa-circle-check"></i>
+
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Campaign Approved</h3>
+
+                <p>
+                    Congratulations!
+                    Your campaign for President has
+                    been approved.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">
+                    Yesterday • 4:30 PM
+                </span>
+
+                <span class="badge read">
+                    Read
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="notification-card announcement">
+
+            <div class="icon">
+
+                <i class="fas fa-bullhorn"></i>
+
+            </div>
+
+            <div class="notification-content">
+
+                <h3>New Announcement</h3>
+
+                <p>
+                    There will be a live debate
+                    for all presidential candidates.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">
+                    Yesterday • 11:15 AM
+                </span>
+
+                <span class="badge read">
+                    Read
+                </span>
+
+            </div>
+
+        </div>
+
+<!--==============================
+                EARLIER
+        ==============================-->
+
+        <h2 class="section-title">Earlier</h2>
+
+        <div class="notification-card warning">
+
+            <div class="icon">
+
+                <i class="fas fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Reminder</h3>
+
+                <p>
+                    Campaign registration closes in
+                    three days. Complete your application
+                    before the deadline.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">
+                    3 days ago
+                </span>
+
+                <span class="badge read">
+                    Read
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="notification-card rejected">
+
+            <div class="icon">
+
+                <i class="fas fa-circle-xmark"></i>
+
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Campaign Rejected</h3>
+
+                <p>
+                    Your campaign submission was rejected
+                    because some required information was
+                    missing. Please update and resubmit.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">
+                    1 week ago
+                </span>
+
+                <span class="badge read">
+                    Read
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="notification-card voting">
+
+            <div class="icon">
+
+                <i class="fas fa-check-circle"></i>
+
+            </div>
+
+            <div class="notification-content">
+
+                <h3>Vote Successfully Recorded</h3>
+
+                <p>
+                    Your vote has been received successfully.
+                    Thank you for participating in the
+                    Shanahan University SUG Election.
+                </p>
+
+            </div>
+
+            <div class="notification-info">
+
+                <span class="time">
+                    2 weeks ago
+                </span>
+
+                <span class="badge read">
+                    Read
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--==============================
+            INFORMATION BOX
+    ==============================-->
+
+    <div class="notification-note">
+
+        <i class="fas fa-circle-info"></i>
+
+        <p>
+
+            Notifications are generated automatically by the
+            Election Management System. New notifications will
+            appear here whenever there is an update concerning
+            your election activities.
+
+        </p>
+
+    </div>
+
+</div>
+
+<!--==============================
+            FOOTER
+================================-->
+
+<footer>
+
+    <p>
+
+        © 2026 Shanahan University Student Union Government
+        Election Portal.
+
+    </p>
+
+   
+
+</footer>
+
+
+<script>
+/*=====================================
+        PAGE LOAD ANIMATION
+======================================*/
+
+window.addEventListener("load", () => {
+
+    document.body.style.opacity = "1";
+
+});
+
+/*=====================================
+        GET ELEMENTS
+======================================*/
+
+const menuBtn = document.querySelector(".menu-btn");
+
+const closeBtn = document.querySelector(".close-menu");
+
+const sidebar = document.querySelector(".sidebar");
+
+const searchInput = document.querySelector(".search-box input");
+
+const filterButtons = document.querySelectorAll(".filter-buttons button");
+
+const notificationCards = document.querySelectorAll(".notification-card");
+
+/*=====================================
+        OPEN SIDEBAR
+======================================*/
+
+menuBtn.addEventListener("click", () => {
+
+    sidebar.classList.add("active");
+
+});
+
+/*=====================================
+        CLOSE SIDEBAR
+======================================*/
+
+closeBtn.addEventListener("click", () => {
+
+    sidebar.classList.remove("active");
+
+});
+
+/*=====================================
+    CLOSE SIDEBAR AFTER CLICK
+======================================*/
+
+document.querySelectorAll(".sidebar a")
+
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        if(window.innerWidth <= 992){
+
+            sidebar.classList.remove("active");
+
+        }
+
+    });
+
+});
+
+/*=====================================
+        ACTIVE SIDEBAR PAGE
+======================================*/
+
+const currentPage =
+
+window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".sidebar a")
+
+.forEach(link => {
+
+    if(link.getAttribute("href") === currentPage){
+
+        link.classList.add("active");
+
+    }
+
+});
+
+/*=====================================
+      SEARCH NOTIFICATIONS
+======================================*/
+
+searchInput.addEventListener("keyup", () => {
+
+    const value = searchInput.value.toLowerCase();
+
+    notificationCards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        if(text.includes(value)){
+
+            card.style.display = "flex";
+
+        }
+
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+/*=====================================
+      FILTER BUTTONS
+======================================*/
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn =>
+
+            btn.classList.remove("active")
+
+        );
+
+        button.classList.add("active");
+
+    });
+
+});
+
+/*=====================================
+      MARK AS READ
+======================================*/
+
+notificationCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.remove("unread");
+
+        const badge = card.querySelector(".badge");
+
+        if(badge){
+
+            badge.innerHTML = "Read";
+
+            badge.classList.remove("new");
+
+            badge.classList.add("read");
+
+        }
+
+    });
+
+});
+
+/*=====================================
+      SCROLL ANIMATION
+======================================*/
+
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+},
+
+{
+
+threshold:0.2
+
+}
+
+);
+
+notificationCards.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(20px)";
+
+card.style.transition=".5s ease";
+
+observer.observe(card);
+
+});
+
+/*=====================================
+      NOTIFICATION COUNTER
+======================================*/
+
+function updateCounter(){
+
+const unread =
+
+document.querySelectorAll(".notification-card.unread").length;
+
+const counter =
+
+document.querySelector(".notification span");
+
+if(counter){
+
+counter.innerHTML = unread;
+
+}
+
+}
+
+updateCounter();
+
+notificationCards.forEach(card=>{
+
+card.addEventListener("click",updateCounter);
+
+});
+
+/*=====================================
+        CONSOLE MESSAGE
+======================================*/
+
+console.log(
+
+"Notifications Page Loaded Successfully."
+
+);
+
+</script>
+
+</body>
+
+</html>
