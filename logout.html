@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logout page</title>
+
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+
+</head>
+
+<style>
+    
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f5f6fa;
+
+    color: #333;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        #650018,
+        #8b0020
+    );
+
+    color: white;
+
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    transition: 0.4s ease;
+
+    scrollbar-width: none;
+}
+
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================
+   CLOSE MENU BUTTON
+========================================= */
+
+.close-menu {
+    display: none;
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #8b0020;
+
+    color: white;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo-area {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.logo img{
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 10px;
+
+    border-radius: 50%;
+
+    opacity: 1;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    object-fit: scale-down;
+}
+
+
+.logo-area h2 {
+    font-size: 20px;
+
+    color: #ffd700;
+
+    margin-bottom: 4px;
+
+}
+
+
+.logo-area p {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   SIDEBAR NAVIGATION
+========================================= */
+
+.sidebar-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.sidebar-nav a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+.sidebar-nav a i {
+    width: 20px;
+
+    text-align: center;
+}
+
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: #ffd700;
+
+    color: #650018;
+}
+
+
+/* =========================================
+   NOTIFICATION COUNT
+========================================= */
+
+
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    min-height: 100vh;
+
+    padding: 30px 40px;
+}
+
+.topbar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+
+.menu-btn {
+    display: none;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #650018;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.notification {
+    position: relative;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.notification i{
+    display: flex;
+
+    align-content: center;
+    
+    justify-content: center;
+    
+    font-size: 17px;
+    
+    color: #8b0020;
+
+}
+
+.notification span {
+    position: absolute;
+
+    top: -3px;
+    right: -3px;
+
+    width: 19px;
+    height: 19px;
+
+    border-radius: 50%;
+
+    background: #8b0020;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 9px;
+}
+
+.page-header{ 
+    display: flex;
+    
+    align-items: center;
+    
+    gap: 10px;
+    
+    padding: 20px;
+
+}
+
+.page-header-icon{
+    
+    color: #8b0020;
+    
+    font-weight: bolder;
+
+    font-size: 30px;
+
+}
+
+.page-header h1{
+    
+    font-size: 30px;
+    
+    text-decoration: none;
+    
+    color: #8b0020;
+
+}
+
+
+.page-description {
+    color: #777;
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+ 
+
+.account-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.07);
+
+    max-width: 950px;
+
+    margin: 0 auto 25px;
+} 
+
+
+/* =========================================
+   STUDENT INFORMATION
+========================================= */
+
+.student-information {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-bottom: 25px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.student-avatar {
+    width: 75px;
+    height: 75px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #650018;
+
+    color: #ffd700;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    border: 4px solid #fff4c2;
+}
+
+
+.student-details h2 {
+    color: #650018;
+
+    font-size: 21px;
+
+    margin-bottom: 5px;
+}
+
+
+.student-details strong {
+    display: inline-block;
+
+    color: #c79b00;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.student-details p {
+    color: #777;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+
+.account-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #eee;
+
+    transition: 0.3s ease;
+}
+
+
+.account-option:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   OPTION ICON
+========================================= */
+
+.option-icon {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+
+.logout-option .option-icon {
+    background: #fff4c2;
+
+    color: #a67c00;
+}
+
+
+.delete-option .option-icon {
+    background: #ffe5e9;
+
+    color: #c0002b;
+}
+
+
+.option-content {
+    flex: 1;
+}
+
+
+.option-content h3 {
+    color: #650018;
+
+    font-size: 16px;
+
+    margin-bottom: 6px;
+}
+
+
+.option-content p {
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+.option-content strong {
+    color: #c0002b;
+}
+
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+.logout-account-btn {
+    border: none;
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    background: #650018;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+
+.logout-account-btn:hover {
+    background: #850021;
+
+    color: #c79b00;
+
+    transform: translateY(-1px);
+}
+
+
+.delete-account-btn {
+    border: none;
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    background: #c0002b;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+
+.delete-account-btn:hover {
+    background: #650018;
+
+    color: #c79b00;
+
+    transform: translateY(-1px);
+}
+
+
+.important-notice {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: #fffaf0;
+
+    border: 1px solid #f2df9b;
+
+    margin-top: 8px;
+}
+
+.notice-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ffd700;
+
+    color: #650018;
+
+    font-size: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.important-notice h3 {
+    color: #650018;
+
+    font-size: 13px;
+
+    margin-bottom: 4px;
+}
+
+
+.important-notice p {
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.security-message {
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    background: #650018;
+
+    color: white;
+
+    border-radius: 15px;
+
+    padding: 20px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.security-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 215, 0, 0.15);
+
+    color: #ffd700;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+.security-message h3 {
+    font-size: 14px;
+
+    margin-bottom: 4px;
+
+    color: #ffd700;
+}
+
+
+.security-message p {
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    line-height: 1.5;
+}
+
+
+.security-shield {
+    margin-left: auto;
+
+    font-size: 65px;
+
+    color: rgba(255, 215, 0, 0.12);
+
+    opacity: 0.9;
+
+    transform: rotate(10deg);
+}
+
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================
+   CONFIRMATION MODAL
+========================================= */
+
+.confirmation-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25);
+
+    animation: modalShow 0.3s ease;
+}
+
+
+@keyframes modalShow {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   MODAL CLOSE BUTTON
+========================================= */
+
+.modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f3f3f3;
+
+    color: #777;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+
+.modal-close:hover {
+    background: #650018;
+
+    color: white;
+}
+
+
+/* =========================================
+   MODAL ICON
+========================================= */
+
+.modal-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+
+.logout-modal-icon {
+    background: #fff4c2;
+
+    color: #a67c00;
+}
+
+
+.delete-modal-icon {
+    background: #ffe5e9;
+
+    color: #c0002b;
+}
+
+
+/* =========================================
+   MODAL TEXT
+========================================= */
+
+.confirmation-modal h2 {
+    color: #650018;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+
+.confirmation-modal p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+.confirmation-modal p strong {
+    color: #c0002b;
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   MODAL BUTTONS
+========================================= */
+
+.modal-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+
+.cancel-btn,
+.confirm-logout-btn,
+.confirm-delete-btn {
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 11px 16px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.cancel-btn {
+    background: #eee;
+
+    color: #555;
+}
+
+
+.cancel-btn:hover {
+    background: #ddd;
+}
+
+
+.confirm-logout-btn {
+    background: #650018;
+
+    color: white;
+}
+
+
+.confirm-logout-btn:hover {
+    background: #850021;
+    color: #c79b00;
+}
+
+
+.confirm-delete-btn {
+    background: #c0002b;
+
+    color: white;
+}
+
+
+.confirm-delete-btn:hover {
+    background: #a00024;
+}
+
+
+.success-screen {
+    position: fixed;
+
+    inset: 0;
+
+    background: #f5f6fa;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 3000;
+}
+
+.success-card {
+    width: 100%;
+
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.1);
+
+    animation: successShow 0.5s ease;
+}
+
+
+@keyframes successShow {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px)
+                   scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0)
+                   scale(1);
+    }
+
+}
+
+
+/* =========================================
+   SUCCESS ICON
+========================================= */
+
+.success-icon {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #e8f8ee;
+
+    color: #16803c;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+
+    border: 6px solid #f3fbf5;
+}
+
+
+.delete-success-icon {
+    background: #fff0f2;
+
+    color: #c0002b;
+}
+
+
+/* =========================================
+   SUCCESS TITLE
+========================================= */
+
+.success-card h1 {
+    color: #650018;
+
+    font-size: 25px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   GOLD DIVIDER
+========================================= */
+
+.gold-divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.gold-divider span {
+    width: 55px;
+
+    height: 2px;
+
+    background: #ffd700;
+}
+
+
+.gold-divider i {
+    color: #ffd700;
+
+    font-size: 7px;
+}
+
+
+.success-card p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   BACK TO LOGIN BUTTON
+========================================= */
+
+.back-login-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 12px 22px;
+
+    border-radius: 10px;
+
+    background: #650018;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+.back-login-btn:hover {
+    background: #850021;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   SECURITY REMINDER
+========================================= */
+
+.security-reminder {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #eee;
+
+    color: #888;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+.security-reminder i {
+    color: #c79b00;
+}
+
+
+.footer {
+    margin-left: 260px;
+
+    padding: 20px 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #727171;
+
+    font-size: 16px;
+}
+
+
+.footer-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.footer-message i {
+    color: #c79b00;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+
+    .sidebar {
+        left: -260px;
+    }
+
+
+    .sidebar.active {
+        left: 0;
+    }
+
+
+    .close-menu {
+        display: flex;
+    }
+
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+    }
+
+
+    .menu-btn {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .footer {
+        margin-left: 0;
+
+        padding: 20px 25px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL TABLETS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .main-content {
+        padding: 20px;
+    }
+
+
+    .account-card {
+        padding: 22px;
+    }
+
+
+    .account-option {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .option-content {
+        min-width: 200px;
+    }
+
+
+    .logout-account-btn,
+    .delete-account-btn {
+        width: 100%;
+
+        justify-content: center;
+
+        margin-left: 70px;
+    }
+
+
+    .security-message {
+        padding: 18px;
+    }
+
+
+    .security-shield {
+        display: none;
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE PHONES
+========================================= */
+
+@media (max-width: 576px) {
+
+    .main-content {
+        padding: 15px;
+    }
+
+
+    .topbar {
+        margin-bottom: 22px;
+    }
+
+
+    .user-greeting {
+        margin-right: 10px;
+    }
+
+
+    .user-greeting h3 {
+        font-size: 12px;
+    }
+
+
+    .user-greeting p {
+        font-size: 9px;
+    }
+
+
+    .user-avatar,
+    .menu-btn,
+    .notification {
+        width: 40px;
+
+        height: 40px;
+    }
+
+
+    .page-header-icon {
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 18px;
+    }
+
+
+    .page-header h1 {
+        font-size: 20px;
+    }
+
+
+    .breadcrumb {
+        font-size: 9px;
+    }
+
+
+    .page-description {
+        font-size: 11px;
+
+        line-height: 1.6;
+    }
+
+
+    .account-card {
+        padding: 18px;
+
+        border-radius: 15px;
+    }
+
+
+    .student-information {
+        gap: 13px;
+
+        align-items: flex-start;
+    }
+
+
+    .student-avatar {
+        width: 58px;
+
+        height: 58px;
+
+        font-size: 22px;
+    }
+
+
+    .student-details h2 {
+        font-size: 17px;
+    }
+
+
+    .student-details strong {
+        font-size: 11px;
+    }
+
+
+    .student-details p {
+        font-size: 10px;
+    }
+
+
+    .account-option {
+        padding: 17px;
+
+        gap: 12px;
+    }
+
+
+    .option-icon {
+        width: 43px;
+
+        height: 43px;
+
+        font-size: 17px;
+    }
+
+
+    .option-content {
+        min-width: 0;
+
+        flex: 1;
+    }
+
+
+    .option-content h3 {
+        font-size: 14px;
+    }
+
+
+    .option-content p {
+        font-size: 10px;
+    }
+
+
+    .logout-account-btn,
+    .delete-account-btn {
+        margin-left: 0;
+
+        font-size: 11px;
+
+        padding: 10px;
+    }
+
+
+    .important-notice {
+        align-items: flex-start;
+
+        padding: 14px;
+    }
+
+
+    .notice-icon {
+        width: 38px;
+
+        height: 38px;
+    }
+
+
+    .important-notice h3 {
+        font-size: 12px;
+    }
+
+
+    .important-notice p {
+        font-size: 9px;
+    }
+
+
+    .security-message {
+        align-items: flex-start;
+
+        padding: 16px;
+    }
+
+
+    .security-message h3 {
+        font-size: 12px;
+    }
+
+
+    .security-message p {
+        font-size: 9px;
+    }
+
+
+    .confirmation-modal {
+        padding: 30px 20px;
+    }
+
+
+    .confirmation-modal h2 {
+        font-size: 18px;
+    }
+
+
+    .confirmation-modal p {
+        font-size: 11px;
+    }
+
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+
+    .cancel-btn,
+    .confirm-logout-btn,
+    .confirm-delete-btn {
+        width: 100%;
+    }
+
+
+    .success-card {
+        padding: 35px 20px;
+    }
+
+
+    .success-icon {
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 28px;
+    }
+
+
+    .success-card h1 {
+        font-size: 20px;
+    }
+
+
+    .success-card p {
+        font-size: 11px;
+    }
+
+
+    .security-reminder {
+        font-size: 9px;
+    }
+
+
+    .footer {
+        padding: 18px 15px;
+
+        font-size: 9px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+    .main-content {
+        padding: 12px;
+    }
+
+
+    .page-header h1 {
+        font-size: 17px;
+    }
+
+
+    .account-card {
+        padding: 14px;
+    }
+
+
+    .student-avatar {
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 19px;
+    }
+
+
+    .student-details h2 {
+        font-size: 15px;
+    }
+
+
+    .account-option {
+        padding: 14px;
+    }
+
+
+    .option-content h3 {
+        font-size: 13px;
+    }
+
+
+    .option-content p {
+        font-size: 9px;
+    }
+
+
+    .success-card {
+        padding: 30px 15px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+    
+
+
+</style>
+
+<body>
+    
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <!-- CLOSE BUTTON -->
+
+        <button class="close-menu">
+
+            <i class="fas fa-xmark"></i>
+
+        </button>
+
+
+        <!-- LOGO -->
+
+        <div class="logo-area">
+
+            <div class="logo">
+
+                <img src="SHANAHAN-ROUND-LOGO.png" alt="logo">
+
+            </div>
+
+            <h2>SUG ELECTION</h2>
+
+            <p>STUDENT PORTAL</p>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <a href="student dashboard.html">
+
+                <i class="fas fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a href="profile.html">
+
+                <i class="fas fa-user"></i>
+
+                <span>My Profile</span>
+
+            </a>
+
+
+            <a href="voting.html">
+
+                <i class="fas fa-vote-yea"></i>
+
+                <span>Vote</span>
+
+            </a>
+
+
+            <a href="results.html">
+
+                <i class="fas fa-chart-column"></i>
+
+                <span>Results</span>
+
+            </a>
+
+
+            <a href="notification.html">
+
+                <i class="fas fa-bell"></i>
+
+                <span>Notifications</span>
+
+                
+
+            </a>
+
+
+            <!-- ACTIVE PAGE -->
+
+            <a href="logout.html"
+               class="active">
+
+                <i class="fas fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =====================================
+             TOP BAR
+        ====================================== -->
+
+        <header class="topbar">
+
+
+            <!-- MENU BUTTON -->
+
+            <button class="menu-btn">
+
+                <i class="fas fa-bars"></i>
+
+            </button>
+
+
+        
+        <section class="page-header">
+
+            <div class="page-header-icon">
+
+                <i class="fas fa-right-from-bracket"></i>
+
+            </div>
+
+
+            <div>
+
+                <h1>Account Management</h1>
+
+               
+
+            </div>
+
+        </section>
+    
+
+            
+
+            <!-- NOTIFICATION -->
+
+            <div class="notification">
+
+                <a href="notification.html">
+
+                    <i class="fas fa-bell"></i>
+
+                    <span>3</span>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             PAGE HEADER
+        ====================================== -->
+
+
+        <p class="page-description">
+
+            From here, you can logout of your account
+            or permanently delete your account.
+
+        </p>
+
+
+
+        <!-- =====================================
+             ACCOUNT INFORMATION
+        ====================================== -->
+
+        <section class="account-card">
+
+
+            <!-- STUDENT INFORMATION -->
+
+            <div class="student-information">
+
+
+                <div class="student-avatar">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+                <div class="student-details">
+
+                    <h2>John Okafor</h2>
+
+                    <strong>2024/CSC/001</strong>
+
+                    <p>Computer Science Department</p>
+
+                    <p>200 Level</p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 LOGOUT OPTION
+            ================================== -->
+
+            <div class="account-option logout-option">
+
+
+                <div class="option-icon">
+
+                    <i class="fas fa-right-from-bracket"></i>
+
+                </div>
+
+
+                <div class="option-content">
+
+                    <h3>Logout Account</h3>
+
+                    <p>
+                        Logout of your account safely.
+                        You can login again anytime.
+                    </p>
+
+                </div>
+
+
+                <button class="logout-account-btn">
+
+                    <i class="fas fa-right-from-bracket"></i>
+
+                    Logout Account
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================
+                 DELETE ACCOUNT OPTION
+            ================================== -->
+
+            <div class="account-option delete-option">
+
+
+                <div class="option-icon">
+
+                    <i class="fas fa-trash-can"></i>
+
+                </div>
+
+
+                <div class="option-content">
+
+                    <h3>Delete Account</h3>
+
+                    <p>
+
+                        Permanently delete your account
+                        and all your data.
+
+                        <strong>
+                            This action cannot be undone.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+                <button class="delete-account-btn">
+
+                    <i class="fas fa-trash-can"></i>
+
+                    Delete My Account
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================
+                 IMPORTANT NOTICE
+            ================================== -->
+
+            <div class="important-notice">
+
+                <div class="notice-icon">
+
+                    <i class="fas fa-shield-halved"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>Important Notice</h3>
+
+                    <p>
+
+                        Logging out will not delete your account.
+                        You can still login again anytime.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             SECURITY MESSAGE
+        ====================================== -->
+
+        <section class="security-message">
+
+            <div class="security-icon">
+
+                <i class="fas fa-lock"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>Your security is our priority</h3>
+
+                <p>
+
+                    Always logout after using the portal,
+                    especially on public or shared devices.
+
+                </p>
+
+            </div>
+
+
+            <div class="security-shield">
+
+                <i class="fas fa-shield-halved"></i>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         LOGOUT CONFIRMATION MODAL
+    ========================================== -->
+
+    <div class="modal-overlay logout-modal">
+
+        <div class="confirmation-modal">
+
+
+            <button class="modal-close">
+
+                <i class="fas fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-icon logout-modal-icon">
+
+                <i class="fas fa-right-from-bracket"></i>
+
+            </div>
+
+
+            <h2>Logout Account?</h2>
+
+
+            <p>
+
+                Are you sure you want to logout
+                of your account?
+
+            </p>
+
+
+            <div class="modal-buttons">
+
+                <button class="cancel-btn">
+
+                    Cancel
+
+                </button>
+
+
+                <button class="confirm-logout-btn">
+
+                    <i class="fas fa-right-from-bracket"></i>
+
+                    Yes, Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         DELETE ACCOUNT CONFIRMATION MODAL
+    ========================================== -->
+
+    <div class="modal-overlay delete-modal">
+
+        <div class="confirmation-modal">
+
+
+            <button class="modal-close">
+
+                <i class="fas fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-icon delete-modal-icon">
+
+                <i class="fas fa-triangle-exclamation"></i>
+
+            </div>
+
+
+            <h2>Delete Account?</h2>
+
+
+            <p>
+
+                Are you sure you want to delete your account?
+
+                <br>
+
+                This action
+
+                <strong>cannot be undone</strong>
+
+                and your data will be permanently removed.
+
+            </p>
+
+
+            <div class="modal-buttons">
+
+                <button class="cancel-btn">
+
+                    Cancel
+
+                </button>
+
+
+                <button class="confirm-delete-btn">
+
+                    <i class="fas fa-trash-can"></i>
+
+                    Yes, Delete My Account
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         LOGOUT SUCCESS MESSAGE
+    ========================================== -->
+
+    <section class="success-screen logout-success">
+
+
+        <div class="success-card">
+
+
+            <div class="success-icon">
+
+                <i class="fas fa-check"></i>
+
+            </div>
+
+
+            <h1>Logged Out Successfully!</h1>
+
+
+            <div class="gold-divider">
+
+                <span></span>
+
+                <i class="fas fa-circle"></i>
+
+                <span></span>
+
+            </div>
+
+
+            <p>
+
+                You have successfully logged out
+                of the SUG Election Portal.
+
+                <br>
+
+                We hope to see you again!
+
+            </p>
+
+
+            <a href="login.html"
+               class="back-login-btn">
+
+                <i class="fas fa-arrow-left"></i>
+
+                Back to Login
+
+            </a>
+
+
+            <div class="security-reminder">
+
+                <i class="fas fa-lock"></i>
+
+                <span>
+
+                    For your security, please close your
+                    browser if you're on a shared device.
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- =========================================
+         ACCOUNT DELETED SUCCESS SCREEN
+    ========================================== -->
+
+    <section class="success-screen delete-success">
+
+
+        <div class="success-card">
+
+
+            <!-- SUCCESS ICON -->
+
+            <div class="success-icon delete-success-icon">
+
+                <i class="fas fa-trash-can"></i>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h1>Account Deleted</h1>
+
+
+            <!-- DIVIDER -->
+
+            <div class="gold-divider">
+
+                <span></span>
+
+                <i class="fas fa-circle"></i>
+
+                <span></span>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <p>
+
+                Your account has been permanently deleted
+                and all your data has been removed
+                from our records.
+
+            </p>
+
+
+            <!-- BACK TO LOGIN -->
+
+            <a href="login.html"
+               class="back-login-btn">
+
+                <i class="fas fa-arrow-left"></i>
+
+                Back to Login
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+
+        <p>
+
+            &copy; 2026 Shanahan University Student Union Government Election Portal.
+        
+
+        </p>
+
+
+       
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+        /* =========================================
+   MOBILE SIDEBAR
+========================================= */
+
+const menuBtn = document.querySelector(".menu-btn");
+const closeMenu = document.querySelector(".close-menu");
+const sidebar = document.querySelector(".sidebar");
+
+
+/* OPEN SIDEBAR */
+
+if (menuBtn && sidebar) {
+
+    menuBtn.addEventListener("click", () => {
+
+        sidebar.classList.add("active");
+
+    });
+
+}
+
+
+/* CLOSE SIDEBAR */
+
+if (closeMenu && sidebar) {
+
+    closeMenu.addEventListener("click", () => {
+
+        sidebar.classList.remove("active");
+
+    });
+
+}
+
+
+/* CLOSE SIDEBAR WHEN LINK IS CLICKED */
+
+const sidebarLinks =
+    document.querySelectorAll(".sidebar-nav a");
+
+sidebarLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        if (window.innerWidth <= 992) {
+
+            sidebar.classList.remove("active");
+
+        }
+
+    });
+
+});
+
+
+/* CLOSE SIDEBAR WHEN CLICKING OUTSIDE */
+
+document.addEventListener("click", (event) => {
+
+    if (!sidebar || !menuBtn) return;
+
+    const clickedSidebar =
+        sidebar.contains(event.target);
+
+    const clickedMenu =
+        menuBtn.contains(event.target);
+
+    if (
+        window.innerWidth <= 992 &&
+        !clickedSidebar &&
+        !clickedMenu
+    ) {
+
+        sidebar.classList.remove("active");
+
+    }
+
+});
+
+
+/* =========================================
+   MODALS
+========================================= */
+
+const logoutModal =
+    document.querySelector(".logout-modal");
+
+const deleteModal =
+    document.querySelector(".delete-modal");
+
+
+/* =========================================
+   LOGOUT BUTTON
+========================================= */
+
+const logoutButton =
+    document.querySelector(".logout-account-btn");
+
+
+if (logoutButton && logoutModal) {
+
+    logoutButton.addEventListener("click", () => {
+
+        logoutModal.style.display = "flex";
+
+    });
+
+}
+
+
+/* =========================================
+   DELETE ACCOUNT BUTTON
+========================================= */
+
+const deleteButton =
+    document.querySelector(".delete-account-btn");
+
+
+if (deleteButton && deleteModal) {
+
+    deleteButton.addEventListener("click", () => {
+
+        deleteModal.style.display = "flex";
+
+    });
+
+}
+
+
+/* =========================================
+   CLOSE MODALS
+========================================= */
+
+const modalCloseButtons =
+    document.querySelectorAll(".modal-close");
+
+
+modalCloseButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const modal =
+            button.closest(".modal-overlay");
+
+        if (modal) {
+
+            modal.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================
+   CANCEL BUTTONS
+========================================= */
+
+const cancelButtons =
+    document.querySelectorAll(".cancel-btn");
+
+
+cancelButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const modal =
+            button.closest(".modal-overlay");
+
+        if (modal) {
+
+            modal.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================
+   CLOSE MODAL BY CLICKING OUTSIDE
+========================================= */
+
+document.querySelectorAll(".modal-overlay")
+.forEach(modal => {
+
+    modal.addEventListener("click", (event) => {
+
+        if (event.target === modal) {
+
+            modal.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================
+   SUCCESS SCREENS
+========================================= */
+
+const logoutSuccess =
+    document.querySelector(".logout-success");
+
+const deleteSuccess =
+    document.querySelector(".delete-success");
+
+
+/* =========================================
+   CONFIRM LOGOUT
+========================================= */
+
+const confirmLogout =
+    document.querySelector(".confirm-logout-btn");
+
+
+if (confirmLogout) {
+
+    confirmLogout.addEventListener("click", () => {
+
+        /*
+         * FRONTEND DEMONSTRATION
+         *
+         * Later PHP will destroy the
+         * student's session here.
+         */
+
+        logoutModal.style.display = "none";
+
+
+        /* Show logout success screen */
+
+        if (logoutSuccess) {
+
+            logoutSuccess.style.display = "flex";
+
+        }
+
+        console.log("Student logged out.");
+
+    });
+
+}
+
+
+/* =========================================
+   CONFIRM DELETE ACCOUNT
+========================================= */
+
+const confirmDelete =
+    document.querySelector(".confirm-delete-btn");
+
+
+if (confirmDelete) {
+
+    confirmDelete.addEventListener("click", () => {
+
+        /*
+         * FRONTEND DEMONSTRATION
+         *
+         * Later PHP will:
+         *
+         * 1. Verify the logged-in student.
+         * 2. Delete/deactivate the account.
+         * 3. Remove the appropriate database records.
+         * 4. Destroy the session.
+         */
+
+        deleteModal.style.display = "none";
+
+
+        /* Show deletion success screen */
+
+        if (deleteSuccess) {
+
+            deleteSuccess.style.display = "flex";
+
+        }
+
+        console.log("Account deletion confirmed.");
+
+    });
+
+}
+
+
+/* =========================================
+   ESCAPE KEY
+========================================= */
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key !== "Escape") return;
+
+
+    document.querySelectorAll(".modal-overlay")
+    .forEach(modal => {
+
+        modal.style.display = "none";
+
+    });
+
+});
+
+
+/* =========================================
+   WINDOW RESIZE
+========================================= */
+
+window.addEventListener("resize", () => {
+
+    if (
+        window.innerWidth > 992 &&
+        sidebar
+    ) {
+
+        sidebar.classList.remove("active");
+
+    }
+
+});
+
+
+/* =========================================
+   PAGE LOADED
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log(
+        "Logout page loaded successfully."
+    );
+
+});
+    </script>
+
+
+</body>
+
+</html>
+
+</body>
+</html>
