@@ -938,7 +938,7 @@ footer p{
 
         <li><a href="voting.html"><i class="fas fa-vote-yea"></i>Vote</a></li>
 
-        <li><a href="my-campaign.html"><i class="fas fa-bullhorn"></i>My Campaign</a></li>
+        <li id="campaignMenu"><a href="my-campaign.html"><i class="fas fa-bullhorn"></i>My Campaign</a></li>
 
         <li><a href="notification.html" class="active"><i class="fas fa-bell"></i>Notifications</a></li>
 
@@ -1550,6 +1550,31 @@ notificationCards.forEach(card=>{
 card.addEventListener("click",updateCounter);
 
 });
+
+
+/*=====================================
+      MY CAMPAIGN
+======================================*/
+
+// false = ordinary student
+// true = approved candidate
+
+const isCandidate = false;
+
+const campaignMenu =
+document.getElementById("campaignMenu");
+
+const campaignCard =
+document.getElementById("campaignCard");
+
+if(!isCandidate){
+
+    campaignMenu.style.display = "none";
+
+    campaignCard.style.display = "none";
+
+}
+
 
 /*=====================================
         CONSOLE MESSAGE

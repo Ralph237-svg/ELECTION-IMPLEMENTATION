@@ -103,9 +103,10 @@ body {
 
     border-radius: 50%;
 
-    background: #8b0020;
+    background: transparent;
 
     color: white;
+    font-size: 20px;
 
     cursor: pointer;
 
@@ -276,8 +277,9 @@ body {
     align-items: center;
     justify-content: center;
 
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+    transition: 0.6s ease;
 }
 
 .notification i{
@@ -315,6 +317,15 @@ body {
 
     font-size: 9px;
 }
+
+
+.notification:hover{
+
+    background: #ffd700;
+
+    transform: translateY(-5px);
+}
+
 
 .page-header{ 
     display: flex;
