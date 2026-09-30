@@ -722,6 +722,8 @@ footer p{
 
    animation:fadeIn .7s ease;
 
+   animation-delay: 0.5s ease-in;
+
 }
 
 @keyframes fadeIn{
@@ -730,7 +732,7 @@ footer p{
 
         opacity:0;
 
-        transform:translateY(20px);
+        transform:translateY(50px);
 
     }
 
