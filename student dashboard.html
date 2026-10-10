@@ -1160,10 +1160,10 @@ My Profile
 
     <div class="profile-card">
 
-        <div class="profile-image">
+        <div class="profile-image" id="studentPhoto">
 
             <img src="images/default-profile.png"
-                 alt="Student Profile">
+                 alt="Student Profile" id="studentPhoto">
 
             <button class="camera-btn">
 
@@ -1572,193 +1572,148 @@ My Profile
 </div>
 
 
+<script src="students.js"></script>
+
+
 <!--==================================
         JAVASCRIPT
 ===================================-->
 
 <script>
-/*=====================================
-        MOBILE SIDEBAR
-======================================*/
 
+/* =====================================
+   1. SIDEBAR MENU
+===================================== */
 const menuBtn = document.querySelector(".menu-btn");
 const closeBtn = document.querySelector(".close-menu");
 const sidebar = document.querySelector(".sidebar");
 
-menuBtn.addEventListener("click", () => {
-
-    sidebar.classList.add("active");
-
-});
-
-closeBtn.addEventListener("click", () => {
-
-    sidebar.classList.remove("active");
-
-});
-
-
-/*=====================================
-      GREETING BASED ON TIME
-======================================*/
-
-const greetingText = document.getElementById("greetingText");
-
-// Temporary name (Backend will replace this)
-const studentName = "Student";
-
-const hour = new Date().getHours();
-
-let greeting = "";
-
-if(hour < 12){
-
-    greeting = "Good Morning";
-
+if (menuBtn && sidebar) {
+    menuBtn.addEventListener("click", function () {
+        sidebar.classList.add("active");
+    });
+}
+if (closeBtn && sidebar) {
+    closeBtn.addEventListener("click", function () {
+        sidebar.classList.remove("active");
+    });
 }
 
-else if(hour < 17){
+/* =====================================
+   2. CONNECT THE LOGGED-IN STUDENT
+===================================== */
+const regNo = sessionStorage.getItem("loggedInRegNo");
 
-    greeting = "Good Afternoon";
-
+if (!regNo) {
+    alert("Please log in to access your dashboard.");
+    window.location.href = "login.html";
 }
 
-else{
-
-    greeting = "Good Evening";
-
+    if (!Array.isArray(window.students)) {
+    alert("Student records could not be loaded. Please check students.js.");
+    console.error("window.students is not an array. Check students.js and its script path.");
 }
 
-greetingText.innerHTML =
-`${greeting}, ${studentName}`;
+if (Array.isArray(window.students)) {
+    const student = window.students.find(function (item) {
+        return item.regNo === regNo;
+    });
 
+    if (!student) {
+        sessionStorage.removeItem("loggedInRegNo");
+        alert("Student record not found. Please log in again.");
+        window.location.href = "login.html";
+    } else {
+        const setText = function (id, value) {
+            const element = document.getElementById(id);
+            if (element) element.textContent = value || "Not provided";
+        };
 
-/*=====================================
-      MY CAMPAIGN
-======================================*/
+        /* 3. STUDENT PROFILE DETAILS */
+        setText("studentName", student.name);
+        setText("studentRegNo", student.regNo);
+        setText("studentDepartment", student.department);
+        setText("studentFaculty", student.faculty);
+        setText("studentLevel", student.level);
+        setText("studentEmail", student.email);
 
-// false = ordinary student
-// true = approved candidate
+        /* 4. GREETING BASED ON TIME */
+        const greetingText = document.getElementById("greetingText");
+        const hour = new Date().getHours();
+        let greeting;
+        if (hour < 12) greeting = "Good Morning";
+        else if (hour < 17) greeting = "Good Afternoon";
+        else greeting = "Good Evening";
 
-const isCandidate = true;
+        if (greetingText) {
+            greetingText.textContent = `${greeting}, ${student.name || "Student"}`;
+        }
 
-const campaignMenu =
-document.getElementById("campaignMenu");
+        /* 5. PROFILE PHOTO */
+        const profilePhoto = document.getElementById("studentPhoto");
+        if (profilePhoto && student.image) {
+            profilePhoto.src = student.image;
+        }
 
-const campaignCard =
-document.getElementById("campaignCard");
-
-if(!isCandidate){
-
-    campaignMenu.style.display = "none";
-
-    campaignCard.style.display = "none";
-
+        /* 6. CAMPAIGN LINKS */
+        const campaignMenu = document.getElementById("campaignMenu");
+        const campaignCard = document.getElementById("campaignCard");
+        // Set isCandidate: true in a demo student record only if approved.
+        const isCandidate = student.isCandidate === true;
+        if (campaignMenu) campaignMenu.style.display = isCandidate ? "" : "none";
+        if (campaignCard) campaignCard.style.display = isCandidate ? "" : "none";
+    }
 }
 
-
-/*=====================================
-    PROFILE PICTURE PREVIEW
-======================================*/
-
-const cameraBtn =
-document.querySelector(".camera-btn");
-
-const profileImage =
-document.querySelector(".profile-image img");
-
-const imageInput =
-document.createElement("input");
-
+/* =====================================
+   7. PROFILE PHOTO PREVIEW
+===================================== */
+const cameraBtn = document.querySelector(".camera-btn");
+const profileImage = document.getElementById("studentPhoto");
+const imageInput = document.createElement("input");
 imageInput.type = "file";
-
 imageInput.accept = "image/*";
 
-cameraBtn.addEventListener("click",()=>{
-
-    imageInput.click();
-
-});
-
-imageInput.addEventListener("change",()=>{
-
-    const file = imageInput.files[0];
-
-    if(file){
-
-        profileImage.src =
-        URL.createObjectURL(file);
-
-    }
-
-});
-
-
-/*=====================================
-      DASHBOARD CARD EFFECT
-======================================*/
-
-const cards =
-document.querySelectorAll(
-".dashboard-card,.action-card"
-);
-
-cards.forEach(card=>{
-
-    card.addEventListener("mouseenter",()=>{
-
-        card.style.transform =
-        "translateY(-8px)";
-
+if (cameraBtn && profileImage) {
+    cameraBtn.addEventListener("click", function () {
+        imageInput.click();
     });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform =
-        "translateY(0)";
-
+    imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
+        if (file && file.type.startsWith("image/")) {
+            profileImage.src = URL.createObjectURL(file);
+        }
     });
+}
 
+/* 8. DASHBOARD CARD HOVER EFFECT */
+const cards = document.querySelectorAll(".dashboard-card, .action-card");
+cards.forEach(function (card) {
+    card.addEventListener("mouseenter", function () {
+        card.style.transform = "translateY(-8px)";
+    });
+    card.addEventListener("mouseleave", function () {
+        card.style.transform = "translateY(0)";
+    });
+});
+
+/* 9. ANNOUNCEMENT HOVER EFFECT */
+const announcements = document.querySelectorAll(".announcement-card");
+announcements.forEach(function (card) {
+    card.addEventListener("mouseenter", function () {
+        card.style.borderLeft = "5px solid #FFD700";
+    });
+    card.addEventListener("mouseleave", function () {
+        card.style.borderLeft = "none";
+    });
+});
+
+/* 10. PAGE LOAD ANIMATION */
+window.addEventListener("load", function () {
+    document.body.style.opacity = "1";
 });
 
 
-/*=====================================
-      ANNOUNCEMENT EFFECT
-======================================*/
-
-const announcements =
-document.querySelectorAll(
-".announcement-card"
-);
-
-announcements.forEach(card=>{
-
-    card.addEventListener("mouseenter",()=>{
-
-        card.style.borderLeft =
-        "5px solid #FFD700";
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.borderLeft =
-        "none";
-
-    });
-
-});
-
-
-/*=====================================
-      PAGE LOAD ANIMATION
-======================================*/
-
-window.addEventListener("load",()=>{
-
-    document.body.style.opacity="1";
-
-});
 
 </script>
 

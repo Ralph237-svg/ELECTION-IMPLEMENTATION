@@ -1879,13 +1879,13 @@ body {
 
                 <div class="student-details">
 
-                    <h2>John Okafor</h2>
+                    <h2 id="name">John Okafor</h2>
 
-                    <strong>2024/CSC/001</strong>
+                    <strong id="regno">2024/CSC/001</strong>
 
-                    <p>Computer Science Department</p>
+                    <p id="department">Computer Science Department</p>
 
-                    <p>200 Level</p>
+                    <p id="level">200 Level</p>
 
                 </div>
 
@@ -2328,6 +2328,10 @@ body {
 
 
 
+<script src="students.js"></script>
+
+
+
     <!-- =========================================
          JAVASCRIPT
     ========================================== -->
@@ -2411,6 +2415,55 @@ document.addEventListener("click", (event) => {
     }
 
 });
+
+
+
+/* =====================================
+   2. CONNECT THE LOGGED-IN STUDENT
+===================================== */
+const regNo = sessionStorage.getItem("loggedInRegNo");
+
+
+    if (!Array.isArray(window.students)) {
+    alert("Student records could not be loaded. Please check students.js.");
+    console.error("window.students is not an array. Check students.js and its script path.");
+}
+
+
+    const student = window.students.find(function (item) {
+        return item.regNo === regNo;
+    });
+
+
+    if (!student) {
+        sessionStorage.removeItem("loggedInRegNo");
+        alert("Student record not found. Please log in again.");
+        window.location.href = "login.html";
+    } else {
+        const setText = function (id, value) {
+            const element = document.getElementById(id);
+            if (element) element.textContent = value || "Not provided";
+        };
+
+        /* 3. STUDENT PROFILE DETAILS */
+        setText("name", student.name);
+        setText("regNo", student.regNo);
+        setText("department", student.department);
+        setText("level", student.level);
+        
+
+      
+
+        /* 5. PROFILE PHOTO */
+        const profilePhoto = document.getElementById("studentPhoto");
+        if (profilePhoto && student.image) {
+            profilePhoto.src = student.image;
+        }
+
+       
+}
+  
+
 
 
 /* =========================================
@@ -2678,5 +2731,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </html>
 
-</body>
-</html>

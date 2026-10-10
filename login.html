@@ -639,6 +639,7 @@ h2{
     ========================== -->
 
     <div class="form-container login-container">
+        
 
         <img src="SHANAHAN-ROUND-LOGO.png"
              class="logo"
@@ -661,6 +662,7 @@ h2{
 
                 <input
                     type="text"
+                    id="loginRegNO"
                     placeholder="Registration Number"
                     required>
 
@@ -691,14 +693,14 @@ h2{
                 Forgot Password?
             </a>
              <!--REMEMBER TO CHANGE THE BUTTON TYPE TO SUBMIT BEFORE CONNECTING TO THE BACKEND-->
-            <button onclick="window.location.href='student dashboard.html'" class="btn">
+            <button type="submit" class="btn">
 
                 LOGIN
 
             </button>
 
         </form>
-
+        
     </div>
         <!-- =========================
          ACTIVATION FORM
@@ -818,6 +820,13 @@ h2{
 
 </div>
 
+
+
+<script src="students.js"></script>
+
+
+
+
 <script>
 /*====================================
       SELECT ELEMENTS
@@ -834,6 +843,64 @@ const panelTitle = document.getElementById("panelTitle");
 const panelText = document.getElementById("panelText");
 
 let activateMode = false;
+
+
+/*====================================
+      STUDENT LOGIN
+====================================*/
+
+const loginForm = document.querySelector(
+    ".form-container.login-container form"
+);
+
+loginForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    console.log("Login form submitted!");
+
+    if (!Array.isArray(window.students)) {
+        console.error(
+            "Student database not loaded. Check students.js."
+        );
+
+        alert("Student database not loaded. Check students.js.");
+        return;
+    }
+
+    const enteredRegNo = document
+        .getElementById("loginRegNO")
+        .value.trim();
+
+    const enteredPassword = document
+        .getElementById("loginPassword")
+        .value;
+
+    const student = window.students.find(function (student) {
+
+        return student.regNo === enteredRegNo &&
+               student.demoPassword === enteredPassword;
+
+    });
+
+    if (student) {
+
+        sessionStorage.setItem(
+            "loggedInRegNo",
+            student.regNo
+        );
+
+        alert("Login successful!");
+
+        window.location.href = "student dashboard.html";
+
+    } else {
+
+        alert("Incorrect registration number or password.");
+
+    }
+
+});
 
 
 /*====================================

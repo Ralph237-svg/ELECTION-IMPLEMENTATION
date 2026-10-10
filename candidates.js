@@ -14,6 +14,12 @@ const candidates = [
 
     name: "John Okafor",
 
+    regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
+
     position: "President",
 
     faculty: "Faculty of Computing",
@@ -72,12 +78,91 @@ const candidates = [
     votes: 0
 },
 
+
+
+{
+    id: "candidate002",
+
+    name: "david nwafor",
+
+    regNo: "2024335002",
+
+    studentStatus:"Regular student",
+
+    password:"david123",
+
+    position: "President",
+
+    faculty: "Faculty of medical sciences;",
+
+    department: "Computer Science",
+
+    level: "300 Level",
+
+    image: "SHANAHAN-ROUND-LOGO.png",
+
+    campaignPoster: "images/posters/david-poster.jpg",
+
+    slogan: "Leadership Through Service",
+
+    biography:
+    "David Nwafor is a dedicated student leader focused on improving campus life and student engagement. His vision is to create a more inclusive and supportive environment for all students.",
+
+    manifesto: [
+
+        "Improve student welfare services.",
+
+        "Introduce a digital complaint and feedback system.",
+
+        "Increase transparency in SUG activities.",
+
+        "Support academic excellence and innovation.",
+
+        "Strengthen communication between students and management."
+
+    ],
+
+    achievements: [
+
+        "Former Class Representative.",
+
+        "Faculty Tech Club President.",
+
+        "Organized Community Development Outreach."
+
+    ],
+
+    email: "david@sug.edu.ng",
+
+    phone: "+2348000000001",
+
+    manifestoFile: "SELECT ELEMENTS.docx",
+
+    facebook: "#",
+
+    instagram: "#",
+
+    whatsapp: "#",
+
+    status: "Approved",
+
+    votes: 0
+},
+
+
 {
     id: "candidate002",
 
     name: "Grace Eze",
 
     position: "President",
+
+     regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
+
 
     faculty: "Faculty of Management Sciences",
 
@@ -139,6 +224,13 @@ const candidates = [
     name: "Michael Obi",
 
     position: "President",
+
+     regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
+
 
     faculty: "Faculty of Social Sciences",
 
@@ -205,6 +297,13 @@ const candidates = [
 
     position: "Vice President",
 
+     regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
+
+
     faculty: "Faculty of Engineering",
 
     department: "Mechanical Engineering",
@@ -265,6 +364,12 @@ const candidates = [
     name: "Mercy Chukwu",
 
     position: "Vice President",
+
+     regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
 
     faculty: "Faculty of Arts",
 
@@ -331,6 +436,12 @@ const candidates = [
 
     position: "General Secretary",
 
+    regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
+
     faculty: "Faculty of Science",
 
     department: "Microbiology",
@@ -395,6 +506,12 @@ ASSISTANT GENERAL SECRETARY
     name: "Esther Okeke",
 
     position: "Assistant General Secretary",
+
+    regNo: "2024335001",
+
+    studentStatus:"Regular student",
+
+    password:"john123",
 
     faculty: "Faculty of Education",
 
@@ -462,6 +579,12 @@ ASSISTANT GENERAL SECRETARY
 
     position: "Treasurer",
 
+    regNo: "2024335001",
+
+    studentStatus: "Regular student",
+
+    password: "john123",
+
     faculty: "Faculty of Management Sciences",
 
     department: "Banking & Finance",
@@ -526,6 +649,12 @@ ASSISTANT GENERAL SECRETARY
     name: "David Musa",
 
     position: "Director of Sports",
+
+    regNo: "2024335001",
+
+    studentStatus: "Regular student",
+
+    password: "john123",
 
     faculty: "Faculty of Science",
 
@@ -592,6 +721,12 @@ ASSISTANT GENERAL SECRETARY
 
     position: "Director of Socials",
 
+    regNo: "2024335001",
+
+    studentStatus: "Regular student",
+
+    password: "john123",
+
     faculty: "Faculty of Arts",
 
     department: "Theatre Arts",
@@ -653,9 +788,15 @@ ASSISTANT GENERAL SECRETARY
 {
     id: "candidate011",
 
+    regNo: "2024335001",
+
     name: "Peace Eze",
 
     position: "Welfare Director",
+
+    studentStatus: "Regular student",
+
+    password: "john123",
 
     faculty: "Faculty of Education",
 
@@ -721,6 +862,13 @@ ASSISTANT GENERAL SECRETARY
     name: "Sophia Nnamdi",
 
     position: "Public Relations Officer",
+
+     regNo: "202433500",
+
+    studentStatus:"Regular student",
+
+    password:"sophia123",
+
 
     faculty: "Faculty of Communication",
 
