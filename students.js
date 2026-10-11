@@ -13,7 +13,8 @@ const students = [
     department: "Computer Science",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@001"
+    demoPassword: "Demo@001",
+    image: "student.jpg"
   },
   {
     id: "student002",
@@ -24,7 +25,8 @@ const students = [
     department: "Accounting",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@002"
+    demoPassword: "Demo@002",
+    image: "student1.jpg"
   },
   {
     id: "student003",
@@ -35,7 +37,8 @@ const students = [
     department: "Political Science",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@003"
+    demoPassword: "Demo@003",
+    image: "student2.jpg"
   },
   {
     id: "student004",
@@ -46,7 +49,8 @@ const students = [
     department: "Mechanical Engineering",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@004"
+    demoPassword: "Demo@004",
+    image: "student3.jpg"
   },
   {
     id: "student005",
@@ -57,7 +61,8 @@ const students = [
     department: "English Language",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@005"
+    demoPassword: "Demo@005",
+    image: "student4.jpg"
   },
   {
     id: "student006",
@@ -68,7 +73,8 @@ const students = [
     department: "Microbiology",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@006"
+    demoPassword: "Demo@006",
+    image: "student5.jpg"
   },
   {
     id: "student007",
@@ -79,7 +85,8 @@ const students = [
     department: "Educational Management",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@007"
+    demoPassword: "Demo@007",
+    image: "student6.jpg"
   },
   {
     id: "student008",
@@ -90,7 +97,8 @@ const students = [
     department: "Banking & Finance",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@008"
+    demoPassword: "Demo@008",
+    image: "student7.jpg"
   },
   {
     id: "student009",
@@ -101,7 +109,8 @@ const students = [
     department: "Human Kinetics",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@009"
+    demoPassword: "Demo@009",
+    image: "student8.jpg"
   },
   {
     id: "student010",
@@ -112,7 +121,8 @@ const students = [
     department: "Theatre Arts",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@010"
+    demoPassword: "Demo@010",
+    image: "student9.jpg"
   },
   {
     id: "student011",
@@ -123,7 +133,8 @@ const students = [
     department: "Guidance & Counselling",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@011"
+    demoPassword: "Demo@011",
+    image: "student10.jpg"
   },
   {
     id: "student012",
@@ -134,7 +145,8 @@ const students = [
     department: "Mass Communication",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@012"
+    demoPassword: "Demo@012",
+    image: "student11.jpg"
   },
   {
     id: "student013",
@@ -145,7 +157,8 @@ const students = [
     department: "Computer Science",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@013"
+    demoPassword: "Demo@013",
+    image: "student12.jpg"
   },
   {
     id: "student014",
@@ -156,7 +169,8 @@ const students = [
     department: "Information Technology",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@014"
+    demoPassword: "Demo@014",
+    image: "student13.jpg"
   },
   {
     id: "student015",
@@ -167,7 +181,8 @@ const students = [
     department: "Electrical Engineering",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@015"
+    demoPassword: "Demo@015",
+    image: "student14.jpg"
   },
   {
     id: "student016",
@@ -178,7 +193,8 @@ const students = [
     department: "Business Administration",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@016"
+    demoPassword: "Demo@016",
+    image: "student15.jpg"
   },
   {
     id: "student017",
@@ -189,7 +205,8 @@ const students = [
     department: "Biochemistry",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@017"
+    demoPassword: "Demo@017",
+    image: "student16.jpg"
   },
   {
     id: "student018",
@@ -200,7 +217,8 @@ const students = [
     department: "Sociology",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@018"
+    demoPassword: "Demo@018",
+    image: "student17.jpg"
   },
   {
     id: "student019",
@@ -211,7 +229,8 @@ const students = [
     department: "History",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@019"
+    demoPassword: "Demo@019",
+    image: "student18.jpg"
   },
   {
     id: "student020",
@@ -222,7 +241,8 @@ const students = [
     department: "Guidance & Counselling",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@020"
+    demoPassword: "Demo@020",
+    image: "student19.jpg"
   },
   {
     id: "student021",
@@ -233,7 +253,8 @@ const students = [
     department: "Computer Science",
     level: "100 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@021"
+    demoPassword: "Demo@021",
+    image: "student20.jpg"
   },
   {
     id: "student022",
@@ -244,7 +265,8 @@ const students = [
     department: "Marketing",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@022"
+    demoPassword: "Demo@022",
+    image: "student21.jpg"
   },
   {
     id: "student023",
@@ -255,7 +277,8 @@ const students = [
     department: "Civil Engineering",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@023"
+    demoPassword: "Demo@023",
+    image: "student22.jpg"
   },
   {
     id: "student024",
@@ -266,7 +289,8 @@ const students = [
     department: "Chemistry",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@024"
+    demoPassword: "Demo@024",
+    image: "student23.jpg"
   },
   {
     id: "student025",
@@ -277,7 +301,8 @@ const students = [
     department: "Economics",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@025"
+    demoPassword: "Demo@025",
+    image: "student24.jpg"
   },
   {
     id: "student026",
@@ -288,7 +313,8 @@ const students = [
     department: "English Language",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@026"
+    demoPassword: "Demo@026",
+    image: "student25.jpg"
   },
   {
     id: "student027",
@@ -299,7 +325,8 @@ const students = [
     department: "Cybersecurity",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@027"
+    demoPassword: "Demo@027",
+    image: "student26.jpg"
   },
   {
     id: "student028",
@@ -310,7 +337,8 @@ const students = [
     department: "Accounting",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@028"
+    demoPassword: "Demo@028",
+    image: "student27.jpg"
   },
   {
     id: "student029",
@@ -321,7 +349,8 @@ const students = [
     department: "Computer Engineering",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@029"
+    demoPassword: "Demo@029",
+    image: "student28.jpg"
   },
   {
     id: "student030",
@@ -332,7 +361,8 @@ const students = [
     department: "Educational Management",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@030"
+    demoPassword: "Demo@030",
+    image: "student29.jpg"
   },
   {
     id: "student031",
@@ -343,7 +373,8 @@ const students = [
     department: "Physics",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@031"
+    demoPassword: "Demo@031",
+    image: "student30.jpg"
   },
   {
     id: "student032",
@@ -354,7 +385,8 @@ const students = [
     department: "Mass Communication",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@032"
+    demoPassword: "Demo@032",
+    image: "student31.jpg"
   },
   {
     id: "student033",
@@ -365,7 +397,8 @@ const students = [
     department: "Software Engineering",
     level: "100 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@033"
+    demoPassword: "Demo@033",
+    image: "student32.jpg"
   },
   {
     id: "student034",
@@ -376,7 +409,8 @@ const students = [
     department: "Banking & Finance",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@034"
+    demoPassword: "Demo@034",
+    image: "student33.jpg"
   },
   {
     id: "student035",
@@ -387,7 +421,8 @@ const students = [
     department: "Mechanical Engineering",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@035"
+    demoPassword: "Demo@035",
+    image: "student34.jpg"
   },
   {
     id: "student036",
@@ -398,7 +433,8 @@ const students = [
     department: "Political Science",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@036"
+    demoPassword: "Demo@036",
+    image: "student35.jpg"
   },
   {
     id: "student037",
@@ -409,7 +445,8 @@ const students = [
     department: "Theatre Arts",
     level: "100 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@037"
+    demoPassword: "Demo@037",
+    image: "student36.jpg"
   },
   {
     id: "student038",
@@ -420,7 +457,8 @@ const students = [
     department: "Microbiology",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@038"
+    demoPassword: "Demo@038",
+    image: "student37.jpg"
   },
   {
     id: "student039",
@@ -431,7 +469,8 @@ const students = [
     department: "Guidance & Counselling",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@039"
+    demoPassword: "Demo@039",
+    image: "student38.jpg"
   },
   {
     id: "student040",
@@ -442,7 +481,8 @@ const students = [
     department: "Information Technology",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@040"
+    demoPassword: "Demo@040",
+    image: "student39.jpg"
   },
   {
     id: "student041",
@@ -453,7 +493,8 @@ const students = [
     department: "Business Administration",
     level: "100 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@041"
+    demoPassword: "Demo@041",
+    image: "student40.jpg"
   },
   {
     id: "student042",
@@ -464,7 +505,8 @@ const students = [
     department: "Electrical Engineering",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@042"
+    demoPassword: "Demo@042",
+    image: "student41.jpg"
   },
   {
     id: "student043",
@@ -475,7 +517,8 @@ const students = [
     department: "Software Engineering",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "dell"
+    demoPassword: "dell",
+    image: "student42.jpg"
   },
   {
     id: "student044",
@@ -486,7 +529,8 @@ const students = [
     department: "Sociology",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@044"
+    demoPassword: "Demo@044",
+    image: "student43.jpg"
   },
   {
     id: "student045",
@@ -498,7 +542,8 @@ const students = [
     department: "Mass Communication",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@045"
+    demoPassword: "Demo@045",
+    image: "student44.jpg"
   },
   {
     id: "student046",
@@ -509,7 +554,8 @@ const students = [
     department: "Computer Science",
     level: "400 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@046"
+    demoPassword: "Demo@046",
+    image: "student45.jpg"
   },
   {
     id: "student047",
@@ -520,7 +566,8 @@ const students = [
     department: "Marketing",
     level: "200 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@047"
+    demoPassword: "Demo@047",
+    image: "student46.jpg"
   },
   {
     id: "student048",
@@ -531,7 +578,8 @@ const students = [
     department: "History",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@048"
+    demoPassword: "Demo@048",
+    image: "student47.jpg"
   },
   {
     id: "student049",
@@ -542,7 +590,8 @@ const students = [
     department: "Civil Engineering",
     level: "100 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@049"
+    demoPassword: "Demo@049",
+    image: "student48.jpg"
   },
   {
     id: "student050",
@@ -553,7 +602,8 @@ const students = [
     department: "Chemistry",
     level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@050"
+    demoPassword: "Demo@050",
+    image: "student51.jpg"
   }
 ];
 

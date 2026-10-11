@@ -1103,13 +1103,11 @@ footer{
         </section>
 
         <section class="profile-card">
+
             <div class="profile-image">
-                <img src="SHANAHAN-ROUND-LOGO.png" alt="profile">
-                <button class="camera-btn">
 
-                        <i class="fas fa-camera"></i>
-
-                    </button>
+                <img src="" alt="profile" id="img">
+                
             </div>
 
             <div class="profile-info">
@@ -1403,39 +1401,6 @@ sidebarLinks.forEach(link => {
 });
 
 
-/* =====================================
-        CHANGE PHOTO
-===================================== */
-
-const changePhoto = document.querySelector(".change-photo");
-
-if (changePhoto) {
-
-    changePhoto.addEventListener("click", () => {
-
-        alert("Profile photo upload will be connected to the backend later.");
-
-    });
-
-}
-
-
-/* =====================================
-        CAMERA BUTTON
-===================================== */
-
-const cameraBtn = document.querySelector(".camera-btn");
-
-if (cameraBtn) {
-
-    cameraBtn.addEventListener("click", () => {
-
-        alert("Photo upload will be connected to the backend later.");
-
-    });
-
-}
-
 /* =================================================
         CONNECTING LOGIN PAGE TO PROFILE PAGE
 ================================================== */
@@ -1479,7 +1444,7 @@ if (Array.isArray(window.students)) {
       
 
         /* 5. PROFILE PHOTO */
-        const profilePhoto = document.getElementById("studentPhoto");
+        const profilePhoto = document.getElementById("img");
         if (profilePhoto && student.image) {
             profilePhoto.src = student.image;
         }
@@ -1487,13 +1452,6 @@ if (Array.isArray(window.students)) {
 }
 
 }
-
-
-
-
-
-
-
 
 
 
