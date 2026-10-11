@@ -468,14 +468,14 @@ const students = [
   },
   {
     id: "student043",
-    regNo: "SHU/DEMO/2024/043",
-    name: "Ogechi Ude",
-    email: "ogechi.ude43@example.edu.ng",
+    regNo: "2024310001",
+    name: "Xenon Machine",
+    email: "xenon.mac43@example.edu.ng",
     faculty: "Faculty of Science",
-    department: "Biochemistry",
-    level: "100 Level",
+    department: "Software Engineering",
+    level: "300 Level",
     studentStatus: "Active",
-    demoPassword: "Demo@043"
+    demoPassword: "dell"
   },
   {
     id: "student044",
