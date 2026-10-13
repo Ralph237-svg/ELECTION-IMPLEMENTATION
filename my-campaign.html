@@ -1307,471 +1307,498 @@ Your campaign preview will appear here after filling the form.
 
 </footer>
 
+
+
+<script src="students.js"></script>
+
 <!--==============================
         JAVASCRIPT FILES
 ================================-->
 
 <script >
-/*=====================================
-        PAGE LOAD
-======================================*/
+    
+/* =========================================
+   1. PAGE LOAD
+========================================= */
 
-window.addEventListener("load",()=>{
-
-    document.body.style.opacity="1";
-
+window.addEventListener("load", function () {
+    document.body.style.opacity = "1";
 });
 
 
-/*=====================================
-        SIDEBAR
-======================================*/
+/* =========================================
+   2. MOBILE SIDEBAR
+========================================= */
 
-const menuBtn =
-document.querySelector(".menu-btn");
+const menuBtn = document.querySelector(".menu-btn");
+const closeBtn = document.querySelector(".close-menu");
+const sidebar = document.querySelector(".sidebar");
 
-const closeBtn =
-document.querySelector(".close-menu");
+if (menuBtn && sidebar) {
+    menuBtn.addEventListener("click", function () {
+        sidebar.classList.add("active");
+    });
+}
 
-const sidebar =
-document.querySelector(".sidebar");
+if (closeBtn && sidebar) {
+    closeBtn.addEventListener("click", function () {
+        sidebar.classList.remove("active");
+    });
+}
 
-menuBtn.addEventListener("click",()=>{
-
-    sidebar.classList.add("active");
-
+document.querySelectorAll(".sidebar a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        if (window.innerWidth <= 992 && sidebar) {
+            sidebar.classList.remove("active");
+        }
+    });
 });
 
-closeBtn.addEventListener("click",()=>{
 
-    sidebar.classList.remove("active");
+/* =========================================
+   3. GET THE LOGGED-IN STUDENT
+========================================= */
 
-});
+const regNo = sessionStorage.getItem("loggedInRegNo");
 
+let student = null;
 
-/*=====================================
-    LOAD STUDENT INFORMATION
-======================================*/
+if (!Array.isArray(window.students)) {
 
-/* Temporary data
-   Backend will replace this later */
+    console.error("Student records were not loaded.");
 
-const student={
+    alert("Student records could not be loaded. Check students.js.");
 
-    name:"Ralph Okafor",
+} else if (!regNo) {
 
-    regNo:"SHU/CSC/24/001",
+    alert("Please log in first.");
 
-    faculty:"Computing",
+    window.location.href = "login.html";
 
-    department:"Computer Science",
+} else {
 
-    level:"200 Level"
+    student = window.students.find(function (item) {
+        return item.regNo === regNo;
+    });
 
-};
+    if (!student) {
 
-document.getElementById("studentName").value=
+        console.error("No student matches this registration number:", regNo);
 
-student.name;
+        alert("Student record not found. Please log in again.");
 
-document.getElementById("studentRegNo").value=
+        sessionStorage.removeItem("loggedInRegNo");
 
-student.regNo;
+        window.location.href = "login.html";
 
-document.getElementById("studentFaculty").value=
+    } else {
 
-student.faculty;
+        console.log("Logged-in student:", student);
 
-document.getElementById("studentDepartment").value=
+        /* Display student information */
 
-student.department;
+        function setInputValue(id, value) {
 
-document.getElementById("studentLevel").value=
+            const element = document.getElementById(id);
 
-student.level;
+            if (element) {
+                element.value = value || "Not provided";
+            }
+        }
 
-
-/*=====================================
-      CAMPAIGN STATUS
-======================================*/
-
-/* Temporary
-   Backend will control this */
-
-let campaignStatus="Not Submitted";
-
-document.getElementById(
-
-    "campaignStatus"
-
-).textContent=campaignStatus;
-
-/*=====================================
-      GET FORM ELEMENTS
-======================================*/
-
-const position =
-document.getElementById("position");
-
-const slogan =
-document.getElementById("slogan");
-
-const biography =
-document.getElementById("biography");
-
-const manifesto =
-document.getElementById("manifesto");
-
-const achievements =
-document.getElementById("achievements");
-
-const previewCard =
-document.getElementById("previewCard");
-
-const profileImage =
-document.getElementById("profileImage");
-
-
-/*=====================================
-      LIVE PREVIEW
-======================================*/
-
-function updatePreview(){
-
-    previewCard.innerHTML = `
-
-        <h2>${student.name}</h2>
-
-        <p>
-
-        <strong>Position:</strong>
-
-        ${position.value || "Not Selected"}
-
-        </p>
-
-        <p>
-
-        <strong>Slogan:</strong>
-
-        ${slogan.value || "No slogan yet"}
-
-        </p>
-
-        <hr>
-
-        <p>
-
-        <strong>Biography</strong>
-
-        </p>
-
-        <p>
-
-        ${biography.value || "No biography yet."}
-
-        </p>
-
-        <hr>
-
-        <p>
-
-        <strong>Manifesto</strong>
-
-        </p>
-
-        <p>
-
-        ${manifesto.value || "No manifesto yet."}
-
-        </p>
-
-        <hr>
-
-        <p>
-
-        <strong>Achievements</strong>
-
-        </p>
-
-        <p>
-
-        ${achievements.value || "No achievements yet."}
-
-        </p>
-
-    `;
-
+        setInputValue("studentName", student.name);
+        setInputValue("studentRegNo", student.regNo);
+        setInputValue("studentFaculty", student.faculty);
+        setInputValue("studentDepartment", student.department);
+        setInputValue("studentLevel", student.level);
+    }
 }
 
 
-/*=====================================
-      UPDATE PREVIEW
-======================================*/
+/* =========================================
+   4. GET CAMPAIGN FORM ELEMENTS
+========================================= */
 
-position.addEventListener("change",updatePreview);
+const position = document.getElementById("position");
+const slogan = document.getElementById("slogan");
+const biography = document.getElementById("biography");
+const manifesto = document.getElementById("manifesto");
+const achievements = document.getElementById("achievements");
 
-slogan.addEventListener("input",updatePreview);
+const previewCard = document.getElementById("previewCard");
 
-biography.addEventListener("input",updatePreview);
+const profileImage = document.getElementById("profileImage");
 
-manifesto.addEventListener("input",updatePreview);
+const campaignStatusElement =
+    document.getElementById("campaignStatus");
 
-achievements.addEventListener("input",updatePreview);
+const saveDraftBtn = document.getElementById("saveDraft");
+
+const submitCampaignBtn =
+    document.getElementById("submitCampaign");
 
 
-/*=====================================
-    PROFILE IMAGE PREVIEW
-======================================*/
+/* =========================================
+   5. CAMPAIGN STATUS
+========================================= */
 
-profileImage.addEventListener("change",()=>{
+let campaignStatus = "Not Submitted";
 
-    const file = profileImage.files[0];
+if (campaignStatusElement) {
+    campaignStatusElement.textContent = campaignStatus;
+}
 
-    if(!file) return;
 
-    const reader = new FileReader();
+/* =========================================
+   6. UPDATE CAMPAIGN PREVIEW
+========================================= */
 
-    reader.onload = function(e){
+function updatePreview() {
 
-        previewCard.innerHTML =
+    if (!previewCard) {
+        return;
+    }
 
-        `
+    if (!student) {
 
-        <img
+        previewCard.textContent =
+            "Student information is unavailable.";
 
-        src="${e.target.result}"
+        return;
+    }
 
-        style="width:140px;
-               height:140px;
-               border-radius:50%;
-               object-fit:cover;
-               margin-bottom:20px;">
+    /* Create elements safely */
 
-        `
+    previewCard.replaceChildren();
 
-        + previewCard.innerHTML;
+    const heading = document.createElement("h2");
 
+    heading.textContent = student.name;
+
+    previewCard.appendChild(heading);
+
+
+    /* Position */
+
+    const positionText = document.createElement("p");
+
+    positionText.textContent =
+        "Position: " + (position.value || "Not Selected");
+
+    previewCard.appendChild(positionText);
+
+
+    /* Slogan */
+
+    const sloganText = document.createElement("p");
+
+    sloganText.textContent =
+        "Slogan: " + (slogan.value || "No slogan yet");
+
+    previewCard.appendChild(sloganText);
+
+
+    /* Biography */
+
+    const biographyHeading = document.createElement("h3");
+
+    biographyHeading.textContent = "Biography";
+
+    previewCard.appendChild(biographyHeading);
+
+    const biographyText = document.createElement("p");
+
+    biographyText.textContent =
+        biography.value || "No biography yet.";
+
+    previewCard.appendChild(biographyText);
+
+
+    /* Manifesto */
+
+    const manifestoHeading = document.createElement("h3");
+
+    manifestoHeading.textContent = "Manifesto";
+
+    previewCard.appendChild(manifestoHeading);
+
+    const manifestoText = document.createElement("p");
+
+    manifestoText.textContent =
+        manifesto.value || "No manifesto yet.";
+
+    previewCard.appendChild(manifestoText);
+
+
+    /* Achievements */
+
+    const achievementsHeading = document.createElement("h3");
+
+    achievementsHeading.textContent = "Achievements";
+
+    previewCard.appendChild(achievementsHeading);
+
+    const achievementsText = document.createElement("p");
+
+    achievementsText.textContent =
+        achievements.value || "No achievements yet.";
+
+    previewCard.appendChild(achievementsText);
+}
+
+
+/* =========================================
+   7. LIVE PREVIEW EVENTS
+========================================= */
+
+if (position) {
+    position.addEventListener("change", updatePreview);
+}
+
+if (slogan) {
+    slogan.addEventListener("input", updatePreview);
+}
+
+if (biography) {
+    biography.addEventListener("input", updatePreview);
+}
+
+if (manifesto) {
+    manifesto.addEventListener("input", updatePreview);
+}
+
+if (achievements) {
+    achievements.addEventListener("input", updatePreview);
+}
+
+
+/* =========================================
+   8. PROFILE IMAGE PREVIEW
+========================================= */
+
+let profileImageData = "";
+
+if (profileImage) {
+
+    profileImage.addEventListener("change", function () {
+
+        const file = profileImage.files[0];
+
+        if (!file) {
+            return;
+        }
+
+        if (!file.type.startsWith("image/")) {
+
+            alert("Please select a valid image.");
+
+            profileImage.value = "";
+
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+
+            profileImageData = event.target.result;
+
+            updatePreview();
+
+            const image = document.createElement("img");
+
+            image.src = profileImageData;
+
+            image.alt = "Candidate profile picture";
+
+            image.style.width = "140px";
+            image.style.height = "140px";
+            image.style.borderRadius = "50%";
+            image.style.objectFit = "cover";
+            image.style.marginBottom = "20px";
+
+            previewCard.prepend(image);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+
+/* =========================================
+   9. GET CAMPAIGN FORM DATA
+========================================= */
+
+function getCampaignFormData() {
+
+    return {
+        position: position.value,
+        slogan: slogan.value.trim(),
+        biography: biography.value.trim(),
+        manifesto: manifesto.value.trim(),
+        achievements: achievements.value.trim()
     };
-
-    reader.readAsDataURL(file);
-
-});
+}
 
 
-/*=====================================
-      SAVE DRAFT
-======================================*/
+/* =========================================
+   10. SAVE DRAFT
+========================================= */
 
-document.getElementById(
+if (saveDraftBtn) {
 
-"saveDraft"
+    saveDraftBtn.addEventListener("click", function () {
 
-)
+        const draft = getCampaignFormData();
 
-.addEventListener("click",()=>{
+        localStorage.setItem(
+            "campaignDraft",
+            JSON.stringify(draft)
+        );
 
-    const draft={
+        alert("Campaign draft saved successfully.");
+    });
+}
 
-        position:position.value,
 
-        slogan:slogan.value,
+/* =========================================
+   11. LOAD SAVED DRAFT
+========================================= */
 
-        biography:biography.value,
+const savedDraft = localStorage.getItem("campaignDraft");
 
-        manifesto:manifesto.value,
+if (savedDraft) {
 
-        achievements:achievements.value
+    try {
 
-    };
+        const draft = JSON.parse(savedDraft);
 
-    localStorage.setItem(
+        if (position) {
+            position.value = draft.position || "";
+        }
 
-        "campaignDraft",
+        if (slogan) {
+            slogan.value = draft.slogan || "";
+        }
 
-        JSON.stringify(draft)
+        if (biography) {
+            biography.value = draft.biography || "";
+        }
 
-    );
+        if (manifesto) {
+            manifesto.value = draft.manifesto || "";
+        }
 
-    alert(
+        if (achievements) {
+            achievements.value = draft.achievements || "";
+        }
 
-        "Draft saved successfully."
+        updatePreview();
 
-    );
+    } catch (error) {
 
-});
+        console.error("Could not load campaign draft:", error);
 
+        localStorage.removeItem("campaignDraft");
+    }
+}
+
+
+/* =========================================
+   12. SUBMIT CAMPAIGN
+========================================= */
+
+if (submitCampaignBtn) {
+
+    submitCampaignBtn.addEventListener("click", function () {
+
+        if (!student) {
+
+            alert("Student information is unavailable.");
+
+            return;
+        }
+
+        const campaign = getCampaignFormData();
+
+        if (
+            !campaign.position ||
+            !campaign.slogan ||
+            !campaign.biography ||
+            !campaign.manifesto
+        ) {
+
+            alert("Please complete all required campaign fields.");
+
+            return;
+        }
+
+        if (!profileImageData) {
+
+            alert("Please select your profile picture.");
+
+            return;
+        }
+
+        const submittedCampaign = {
+
+            studentName: student.name,
+            regNo: student.regNo,
+            faculty: student.faculty,
+            department: student.department,
+            level: student.level,
+
+            position: campaign.position,
+            slogan: campaign.slogan,
+            biography: campaign.biography,
+            manifesto: campaign.manifesto,
+            achievements: campaign.achievements,
+
+            profileImage: profileImageData,
+
+            status: "Pending Approval",
+
+            submittedAt: new Date().toISOString()
+        };
+
+
+        localStorage.setItem(
+            "candidateCampaign",
+            JSON.stringify(submittedCampaign)
+        );
+
+
+        campaignStatus = "Pending Approval";
+
+        if (campaignStatusElement) {
+            campaignStatusElement.textContent = campaignStatus;
+        }
+
+        localStorage.removeItem("campaignDraft");
+
+        alert(
+            "Campaign submitted successfully!\n\n" +
+            "Your campaign is awaiting admin approval."
+        );
+
+        console.log("Submitted campaign:", submittedCampaign);
+    });
+}
+
+
+/* =========================================
+   13. INITIALIZE PREVIEW
+========================================= */
 
 updatePreview();
 
-/*=====================================
-      LOAD SAVED DRAFT
-======================================*/
 
-const savedDraft =
+/* =========================================
+   14. PAGE READY
+========================================= */
 
-localStorage.getItem(
+console.log("My Campaign JavaScript loaded successfully.");
 
-    "campaignDraft"
-
-);
-
-if(savedDraft){
-
-    const draft =
-
-    JSON.parse(savedDraft);
-
-    position.value =
-
-    draft.position || "";
-
-    slogan.value =
-
-    draft.slogan || "";
-
-    biography.value =
-
-    draft.biography || "";
-
-    manifesto.value =
-
-    draft.manifesto || "";
-
-    achievements.value =
-
-    draft.achievements || "";
-
-    updatePreview();
-
-}
-
-
-/*=====================================
-      SUBMIT CAMPAIGN
-======================================*/
-
-document.getElementById(
-
-"submitCampaign"
-
-)
-
-.addEventListener("click",()=>{
-
-    if(
-
-        position.value==="" ||
-
-        slogan.value==="" ||
-
-        biography.value==="" ||
-
-        manifesto.value===""
-
-    ){
-
-        alert(
-
-        "Please complete all required fields."
-
-        );
-
-        return;
-
-    }
-
-    const campaign={
-
-        studentName:student.name,
-
-        regNo:student.regNo,
-
-        faculty:student.faculty,
-
-        department:student.department,
-
-        level:student.level,
-
-        position:position.value,
-
-        slogan:slogan.value,
-
-        biography:biography.value,
-
-        manifesto:manifesto.value,
-
-        achievements:achievements.value,
-
-        status:"Pending Approval"
-
-    };
-
-    localStorage.setItem(
-
-        "candidateCampaign",
-
-        JSON.stringify(campaign)
-
-    );
-
-    campaignStatus="Pending Approval";
-
-    document.getElementById(
-
-        "campaignStatus"
-
-    ).textContent=campaignStatus;
-
-    localStorage.removeItem(
-
-        "campaignDraft"
-
-    );
-
-    alert(
-
-        "Campaign submitted successfully.\n\nAwaiting admin approval."
-
-    );
-
-});
-
-
-/*=====================================
-      CLOSE SIDEBAR
-======================================*/
-
-document.querySelectorAll(
-
-".sidebar a"
-
-)
-
-.forEach(link=>{
-
-    link.addEventListener("click",()=>{
-
-        if(window.innerWidth<=992){
-
-            sidebar.classList.remove("active");
-
-        }
-
-    });
-
-});
-
-
-/*=====================================
-      PAGE READY
-======================================*/
-
-console.log(
-
-"My Campaign Loaded Successfully."
-
-);
 
 </script>
 
