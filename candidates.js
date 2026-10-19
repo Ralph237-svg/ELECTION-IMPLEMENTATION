@@ -28,7 +28,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "SHANAHAN-ROUND-LOGO.png",
+    image: "student.jpg",
 
     campaignPoster: "images/posters/john-poster.jpg",
 
@@ -99,7 +99,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "SHANAHAN-ROUND-LOGO.png",
+    image: "student1.jpg",
 
     campaignPoster: "images/posters/david-poster.jpg",
 
@@ -170,7 +170,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "sug logo.webp",
+    image: "student2.jpg",
 
     campaignPoster: "images/posters/grace-poster.jpg",
 
@@ -238,7 +238,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "images/candidates/michael-obi.jpg",
+    image: "student3.jpg",
 
     campaignPoster: "images/posters/michael-poster.jpg",
 
@@ -310,7 +310,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "images/candidates/daniel-nwosu.jpg",
+    image: "student4.jpg",
 
     campaignPoster: "images/posters/daniel-poster.jpg",
 
@@ -377,7 +377,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "images/candidates/mercy-chukwu.jpg",
+    image: "student5.jpg",
 
     campaignPoster: "images/posters/mercy-poster.jpg",
 
@@ -448,7 +448,7 @@ const candidates = [
 
     level: "300 Level",
 
-    image: "images/candidates/samuel-eze.jpg",
+    image: "student7.jpg",
 
     campaignPoster: "images/posters/samuel-poster.jpg",
 
@@ -519,7 +519,7 @@ ASSISTANT GENERAL SECRETARY
 
     level: "300 Level",
 
-    image: "images/candidates/esther-okeke.jpg",
+    image: "student8.jpg",
 
     campaignPoster: "images/posters/esther-poster.jpg",
 
@@ -591,7 +591,7 @@ ASSISTANT GENERAL SECRETARY
 
     level: "300 Level",
 
-    image: "images/candidates/chinedu-okeke.jpg",
+    image: "student9.jpg",
 
     campaignPoster: "images/posters/chinedu-poster.jpg",
 
@@ -662,7 +662,7 @@ ASSISTANT GENERAL SECRETARY
 
     level: "300 Level",
 
-    image: "images/candidates/david-musa.jpg",
+    image: "student10.jpg",
 
     campaignPoster: "images/posters/david-poster.jpg",
 
@@ -733,7 +733,7 @@ ASSISTANT GENERAL SECRETARY
 
     level: "300 Level",
 
-    image: "images/candidates/blessing-obi.jpg",
+    image: "student11.jpg",
 
     campaignPoster: "images/posters/blessing-poster.jpg",
 
@@ -804,7 +804,7 @@ ASSISTANT GENERAL SECRETARY
 
     level: "300 Level",
 
-    image: "images/candidates/peace-eze.jpg",
+    image: "student12.jpg",
 
     campaignPoster: "images/posters/peace-poster.jpg",
 
@@ -876,7 +876,7 @@ ASSISTANT GENERAL SECRETARY
 
     level: "300 Level",
 
-    image: "images/candidates/sophia-nnamdi.jpg",
+    image: "student13.jpg",
 
     campaignPoster: "images/posters/sophia-poster.jpg",
 
